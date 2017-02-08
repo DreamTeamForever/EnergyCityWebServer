@@ -21,12 +21,18 @@
     <link href="css/energy-city.min.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="css/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/morris.css">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="js/code.js"></script>
+    <!--Our favicon-->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQinAAHjQ7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAARABEBAAAAAAAREREAAAAAESIiIhEAAAASIiIiIQAAESIiIiIiEBEBIiIiIiIQEBEiIiIiIhEQESIiIiIiEQABIiIiIiIQAAEiIiIiIhAAEBIiIiIhAQAQESIiIhEQAAAAERERAAAAAAAQEQEQAAAAAAEAAAAAD/vwAA5l8AAPgfAADgBwAA4AcAAIACAABAAgAAgAAAAIABAADAAwAAwAMAAKAFAACgAwAA+B8AAPpPAAD9/wAA" rel="icon" type="image/x-icon" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -159,6 +165,25 @@
                 <!-- /.col-lg-8 -->
                 <!-- /.col-lg-4 -->
             </div>
+            <!--<div class="row">-->
+                <!--<div class="col-lg-12">-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading">-->
+                            <!--<i class="fa fa-map-o fa-fw"></i> Схема города-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; /.panel-heading &ndash;&gt;-->
+                        <!--<div class="panel-body">-->
+                            <!--<div id="cy"></div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; /.panel-body &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /.panel &ndash;&gt;-->
+                    <!--&lt;!&ndash; /.panel &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.col-lg-8 &ndash;&gt;-->
+                <!--&lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+            <!--</div>-->
+
             <!-- /.row -->
         </div>
 
@@ -416,13 +441,13 @@
     <script src="js/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="js/raphael.min.js"></script>
-    <script src="js/morris.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <script src="js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/energy-city.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/2.7.14/cytoscape.min.js"></script>
 </body>
 
 </html>
