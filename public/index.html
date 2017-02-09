@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->l
+    <!-- MetisMenu CSS -->
     <link href="css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -57,6 +57,27 @@
                 <a class="navbar-brand" href="index.html">Городская энергитическия система</a>
             </div>
             <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                          <a href="#" data-toggle="modal" data-target="#game_settings"><i class="fa fa-gear fa-fw"></i> Настройки игры</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-calendar-o fa-fw"></i> Настройки моделей</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Пшел вон!</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
 
             <!-- /.navbar-top-links -->
 
@@ -433,6 +454,61 @@
     </div>
   </div>
 </div>
+<div id="game_settings" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Настройки игры</h4>
+      </div>
+      <div class="modal-body">
+        <form  id="settings_form" class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="input_speed" class="col-sm-4 control-label">Скорость игры</label>
+            <div class="col-sm-6">
+              <input type="speed" class="form-control" id="input_speed" placeholder="10">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="input_sol_model" class="col-sm-4 control-label">Модель солнца</label>
+            <div class="col-sm-6">
+              <select id="input_sol_model" class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="input_wind_model" class="col-sm-4 control-label">Модель ветра</label>
+            <div class="col-sm-6">
+              <select id="input_wind_model" class="form-control">
+                <option>Модель_ветра_1</option>
+                <option>Модель_ветра_2</option>
+                <option>Модель_ветра_3</option>
+                <option>Модель_ветра_4</option>
+              </select>
+<!--               <script type="text/javascript">
+                var x = document.getElementById("input_sol_model");
+                var arrModel = ['Модель_солнца_123','Модель_солнца_234','Модель_солнца_345','Модель_солнца_456'];
+                for (var i = 0; i < arrModel.length; i++) {
+                  var option = document.createElement("option");
+                  option.text = arrModel[i];
+                  x.add(option, x[i]);
+                }
+              </script> -->
+            </div>
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Сохранить</button>
+            <button type="exit" class="btn btn-default" data-dismiss="modal">Отменить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- all_popup_end -->
     <!-- jQuery -->
 <!--     <script
@@ -440,6 +516,7 @@
               integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
               crossorigin="anonymous"></script> -->
     <script src="js/jquery.min.js"></script>
+    <script src="js/modalWindow.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
