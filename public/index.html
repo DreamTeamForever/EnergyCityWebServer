@@ -167,48 +167,36 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="container-fluid">
+              <div class="col-md-12 col-sm-12 col-lg-12">
+
+                <!-- graph : start -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">                        
+                    <i class="fa fa-bar-map-o fa-fw"></i>  Схема города
+                  </div>
+                  <div class="panel-body">
+                    <div id="cy-container">
+                      <div id="cy"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- graph : end -->
+              </div>
+            </div>
+            <div class="container-fluid">
+                <div class="col-md-12 col-sm-12 col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> График потребления
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div id="morris-area-chart"></div>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-8 -->
-                <!-- /.col-lg-4 -->
             </div>
-            <!--<div class="row">-->
-                <!--<div class="col-lg-12">-->
-                    <!--<div class="panel panel-default">-->
-                        <!--<div class="panel-heading">-->
-                            <!--<i class="fa fa-map-o fa-fw"></i> Схема города-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.panel-heading &ndash;&gt;-->
-                        <!--<div class="panel-body">-->
-                            <!--<div id="cy"></div>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash; /.panel-body &ndash;&gt;-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; /.panel &ndash;&gt;-->
-                    <!--&lt;!&ndash; /.panel &ndash;&gt;-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /.col-lg-8 &ndash;&gt;-->
-                <!--&lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
-            <!--</div>-->
-
-            <!-- /.row -->
         </div>
-
-
     </div>
     <!-- /#wrapper -->
     <!-- all_popup_start -->
@@ -517,7 +505,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/energy-city.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/2.7.14/cytoscape.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
+    <script src="js/graph.js"></script>
 </body>
 
 </html>
