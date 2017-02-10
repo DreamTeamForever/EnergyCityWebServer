@@ -7,13 +7,14 @@ model_request.onload = function() {
     var model_select = JSON.parse(model_request.responseText);
     renderHTML(model_select);
   } else {
-    console.log()
+    console.log("Server error code: "+model_request.status);
   }
-
 };
+
 model_request.onerror = function() {
   console.log("Connection error");
 };
+
 model_request.send();
 
 function renderHTML(data) {
