@@ -52,22 +52,28 @@ $(function() {
     style: [{
         selector: 'node',
         style: {
-          'width': 100,
-          'height': 100,
-          'content': 'data(text)',
-          //          'text-opacity': 0.5,
-          'text-valign': 'center',
-          'color': 'white',
-          'background-color': nodeOptions.normal.bgColor,
-          'text-outline-width': 1,
-          'text-outline-color': '#222'
+          'width': 80,
+          'height': 80,
+          'content': 'data(label)',
+          // 'text-opacity': 0.5,
+          'text-valign': 'top',
+          'color': '#1ab394',
+          // 'background-color': nodeOptions.normal.bgColor,
+          // 'text-outline-width': 1,
+          // 'text-outline-color': '#222'
+          'height': 80,
+          'width': 80,
+          'background-fit': 'cover',
+          'border-color': '#000',
+          'border-width': 3,
+          'border-opacity': 0.5
         }
       },
 
       {
         selector: 'edge',
         style: {
-          'width': 10,
+          'width': 5,
           'target-arrow-shape': 'triangle',
           'line-color': 'data(color)',
           'target-arrow-color': '#9dbaea'
@@ -89,19 +95,71 @@ $(function() {
         style: {
           'width': 20
         }
+      },
+    {
+      selector: '#factory',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
       }
+    },
+    {
+      selector: '#hospital',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#district',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#diesel_power',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#wind_power',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#sun_power',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#electric_substaion',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    },
+    {
+      selector: '#mini_electric_substaion',
+      style: {
+        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+      }
+    }
+      // }.('#bird')
+      // .css({
+      // 'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg'
+      // })
     ],
 
     elements: {
     nodes: [
-      { data: { id: 'factory', text: 'Фабрика' } },
-      { data: { id: 'hospital', text: 'Госпиталь' } },
-      { data: { id: 'district', text: 'Микрорайон' } },
-      { data: { id: 'diesel_power', text: 'Дизель генератор' } },
-      { data: { id: 'wind_power', text: 'Ветряк' } },
-      { data: { id: 'sun_power', text: 'Солнечная батарея' } },
-      { data: { id: 'electric_substaion', text: 'Электрическая станция' } },
-      { data: { id: 'mini_electric_substaion', text: 'Электрическая подстанция' } }
+      { data: { id: 'factory', label: 'Фабрика' } },
+      { data: { id: 'hospital', label: 'Госпиталь' } },
+      { data: { id: 'district', label: 'Микрорайон' } },
+      { data: { id: 'diesel_power', label: 'Дизель генератор' } },
+      { data: { id: 'wind_power', label: 'Ветряк' } },
+      { data: { id: 'sun_power', label: 'Солнечная батарея' } },
+      { data: { id: 'electric_substaion', label: 'Электрическая станция' } },
+      { data: { id: 'mini_electric_substaion', label: 'Электрическая подстанция' } }
     ],
 
     edges: [
