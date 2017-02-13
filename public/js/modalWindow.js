@@ -5,6 +5,7 @@ var game_speed    = document.getElementById("input_speed");
 var model_request = new XMLHttpRequest();
 model_request.open('GET', 'http://localhost/data/default/table_models.json');
 model_request.onload = function() {
+  
   if (model_request.status >= 200 && model_request.status < 400) {
     var model_select = JSON.parse(model_request.responseText);
     renderHTML(model_select);
@@ -28,6 +29,7 @@ save_settings.addEventListener("click", function() {
 
 $(document).ready(function() {
   updateModalSettings();
+  // testSocet();
 });
 
 function updateModalSettings(){
@@ -76,3 +78,53 @@ function readCookie(name) {
 function eraseCookie(name) {
   writeCookie(name, "", -1);
 };
+
+// function testSocet() {
+
+// var xmlHttp = new XMLHttpRequest();
+//     xmlHttp.open('POST','http://82.117.171.124:9099/post',false);
+//     // xmlHttp.onload = function () {
+//     //  var status = request.status; 
+//     //  var data = request.responseText; 
+//     // }
+//     //setRequestHeader("Content-type", "application/x-www-form-urlencoded"
+//     xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+//     var postData = "Some data dfgdfgdfgdfgdf gdfgsdfgdfgh sdfgsdfgsdfgsdfgdsfg";
+//     // console.log("data: "+postData);
+//     // xmlHttp.send(postData);
+//     // console.log("Test: "+xmlHttp.status);
+//     xmlHttp.onreadystatechange = function() {
+//     if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+//         console.log(xmlHttp.responseText);
+//     }
+// }
+// xmlHttp.send(postData);
+// };
+
+//Херня для таблицы I
+$(function() { 
+  $('td').click(function(e) { 
+    var t = e.target || e.srcElement; 
+    var elm_name = t.tagName.toLowerCase(); 
+    if(elm_name == 'input') {
+      return false;
+    }
+    var val = $(this).html(); 
+    var code = '<input type="text" id="edit" value="'+val+'" />'; 
+    $(this).empty().append(code); 
+    $('#edit').focus(); 
+    $('#edit').blur(function() { 
+      var val = $(this).val(); 
+      $(this).parent().empty().html(val); 
+    }); 
+  }); 
+});
+//Херня для таблицы II + Enter
+$(window).keydown(function(event){ 
+  if(event.keyCode == 13) {
+    $('#edit').blur();
+  } 
+});
+
+//магия бляяяять, Херня для таблицы III
+//$('#odin').editable();
