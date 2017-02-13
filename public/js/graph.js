@@ -106,67 +106,67 @@ $(function() {
             {
                 selector: 'node[type = "factory"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/factory.jpg',
                 }
             },
             {
                 selector: 'node[type = "accumulate"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/accamulator.jpg',
                 }
             },
             {
                 selector: 'node[type = "hospital"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/hospital.jpg',
                 }
             },
             {
                 selector: 'node[type = "district"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/district.jpg',
                 }
             },
             {
-                selector: 'node[type = "diesel_power"]',
+                selector: 'node[type = "disel"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/diesel.jpg',
                 }
             },
             {
-                selector: 'node[type = "wind_power"]',
+                selector: 'node[type = "wind"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/wind.jpg',
                 }
             },
             {
-                selector: 'node[type = "sun_power"]',
+                selector: 'node[type = "sun"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/solar.jpg',
                 }
             },
             {
                 selector: 'node[type = "electric_substaion"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/electric.jpg',
                 }
             },
             {
                 selector: 'node[type = "mini_electric_substaion"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/electric.jpg',
                 }
             },
             {
                 selector: 'node[type = "stick"]',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/stcik.png',
                 }
             },
             {
                 selector: '#electric_substaion',
                 style: {
-                    'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg',
+                    'background-image': 'image/electric.jpg',
                 }
             }
         ],
