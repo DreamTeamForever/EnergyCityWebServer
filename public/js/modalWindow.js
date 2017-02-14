@@ -33,7 +33,8 @@ save_settings.addEventListener("click", function() {
 $(document).ready(function() {
   updateModalSettings();
   
-  // testSocet();
+    // testSocet();
+   //  testSocet_2();
 });
 
 function updateModalSettings(){
@@ -83,27 +84,44 @@ function eraseCookie(name) {
   writeCookie(name, "", -1);
 };
 
-// function testSocet() {
+function testSocet() {
 
-// var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.open('POST','http://82.117.171.124:9099/post',false);
-//     // xmlHttp.onload = function () {
-//     //  var status = request.status; 
-//     //  var data = request.responseText; 
-//     // }
-//     //setRequestHeader("Content-type", "application/x-www-form-urlencoded"
-//     xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-//     var postData = "Some data dfgdfgdfgdfgdf gdfgsdfgdfgh sdfgsdfgsdfgsdfgdsfg";
-//     // console.log("data: "+postData);
-//     // xmlHttp.send(postData);
-//     // console.log("Test: "+xmlHttp.status);
-//     xmlHttp.onreadystatechange = function() {
-//     if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-//         console.log(xmlHttp.responseText);
-//     }
-// }
-// xmlHttp.send(postData);
-// };
+var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('POST','http://82.117.171.124:9099/test100500',false);
+    // xmlHttp.onload = function () {
+    //  var status = request.status; 
+    //  var data = request.responseText; 
+    // }
+    //setRequestHeader("Content-type", "application/x-www-form-urlencoded"
+    xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+    var postData = "1111111Some data dfgdfgdfgdfgdf gdfgsfsdgm233423423423423dfgdfgsdfg7657ghjghjfgjhfgj sdfgsdfgsdfgsdfgdsfg";
+    // console.log("data: "+postData);
+    // xmlHttp.send(postData);
+    // console.log("Test: "+xmlHttp.status);
+    xmlHttp.onreadystatechange = function() {
+    if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        console.log(xmlHttp.responseText);
+    }
+}
+xmlHttp.send(postData);
+};
+
+function testSocet_2() {
+
+var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('GET','http://82.117.171.124:9099/test100500');
+    xmlHttp.onload = function() {
+      if (xmlHttp.status >= 200 && xmlHttp.status < 400) {
+        //var test = JSON.parse(xmlHttp.responseText);
+        console.log(xmlHttp.responseText);
+        //renderHTML(model_select);
+      } else {
+        console.log("Server error code: "+xmlHttp.status);
+      }
+    }
+    xmlHttp.send();
+};
+
 //Херня для таблицы 0
 //http://www.json-generator.com/api/json/get/cgvGBbDrJu?indent=2
 
@@ -147,14 +165,14 @@ function select_on_model() {
   for(var i = 0; i < table_model.length; i++) {
     if(model_n==table_model[i].model_name){
       for(var j = 0; j < table_model[i].data.length; j++ ) {
-        var table_c = document.getElementById('table_current_model').getElementsByTagName('tbody')[0];
+        var table_c   = document.getElementById('table_current_model').getElementsByTagName('tbody')[0];
         var new_row   = table_c.insertRow(table_c.rows.length);
-        var new_cell  = new_row.appendChild(document.createElement("TH")).innerText = table_model[i].data[j].id ;
-        var new_cell_2  = new_row.insertCell(1).innerText = table_model[i].data[j].value;
+        new_row.appendChild(document.createElement("TH")).innerText = table_model[i].data[j].id ;
+        new_row.insertCell(1).innerText = table_model[i].data[j].value;
       }
     }
   }
-  event_edit_table();
+  //event_edit_table();
 }
 
 
