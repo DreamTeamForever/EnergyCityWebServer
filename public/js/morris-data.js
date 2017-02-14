@@ -1,94 +1,39 @@
-// Morris.js Charts sample data for Городская энергитическия система template
+// this requests the file and executes a callback with the parsed result once
+//   it is available
 
 $(function() {
+    // var my_url = "http://www.json-generator.com/api/json/get/bVsmlpmmJK"
+    // var json = (function() {
+    //     var json = null;
+    //     $.ajax({
+    //         'async': true,
+    //         'global': false,
+    //         'url': my_url,
+    //         'dataType': "json",
+    //         'success': function(data) {
+    //             json = data;
+    //         }
+    //     });
+    //     return json;
+    // })();
 
-    // Area Chart
-    Morris.Area({
-        element: 'morris-area-chart',
-        data: [{
-            period: '2015 Q1',
-            gas: 2666,
-            heat: null,
-            energy: 2647
-        }, {
-            period: '2015 Q2',
-            gas: 2778,
-            heat: 2294,
-            energy: 2441
-        }, {
-            period: '2015 Q3',
-            gas: 4912,
-            heat: 1969,
-            energy: 2501
-        }, {
-            period: '2015 Q4',
-            gas: 3767,
-            heat: 3597,
-            energy: 5689
-        }, {
-            period: '2016 Q1',
-            gas: 6810,
-            heat: 1914,
-            energy: 2293
-        }, {
-            period: '2016 Q2',
-            gas: 5670,
-            heat: 4293,
-            energy: 1881
-        }, {
-            period: '2016 Q3',
-            gas: 4820,
-            heat: 3795,
-            energy: 1588
-        }, {
-            period: '2016 Q4',
-            gas: 15073,
-            heat: 5967,
-            energy: 5175
-        }, {
-            period: '2017 Q1',
-            gas: 10687,
-            heat: 4460,
-            energy: 2028
-        }, {
-            period: '2017 Q2',
-            gas: 8432,
-            heat: 5713,
-            energy: 1791
-        }],
-        xkey: 'period',
-        ykeys: ['gas', 'heat', 'energy'],
-        labels: ['Газ', 'Тепло', 'Электричество'],
-        pointSize: 4,
-        hideHover: 'auto',
-        resize: true,
-        lineColors: ['#87d6c6', '#54cdb4','#1ab394'],
-        lineWidth:2,
-        pointSize:1,
-    });
-
-    // Donut Chart
-    Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "Download Sales",
-            value: 12
-        }, {
-            label: "In-Store Sales",
-            value: 30
-        }, {
-            label: "Mail-Order Sales",
-            value: 20
-        }],
-        resize: true
-    });
-
+    // for (var i = 0; i < json.length; i++) {
+    //     // for (var i in ) {
+    //     if (object.hasOwnProperty(i)) {
+    //         console.log(i);
+    //         var tmp = JSON.parse(i);
+    //         console.log(tmp);
+    //     }
+    // }
+    // console.log(my_url);
     // Line Chart
     Morris.Line({
         // ID of the element in which to draw the chart.
         element: 'morris-line-chart',
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
+        //url = http://www.json-generator.com/api/json/get/bVsmlpmmJK?indent=2
+
         data: [{
             d: '2017-10-01',
             visits: 802
@@ -194,38 +139,4 @@ $(function() {
         smooth: false,
         resize: true
     });
-
-    // Bar Chart
-    Morris.Bar({
-        element: 'morris-bar-chart',
-        data: [{
-            device: 'gas',
-            geekbench: 136
-        }, {
-            device: 'gas 3G',
-            geekbench: 137
-        }, {
-            device: 'gas 3GS',
-            geekbench: 275
-        }, {
-            device: 'gas 4',
-            geekbench: 380
-        }, {
-            device: 'gas 4S',
-            geekbench: 655
-        }, {
-            device: 'gas 5',
-            geekbench: 1571
-        }],
-        xkey: 'device',
-        ykeys: ['geekbench'],
-        labels: ['Geekbench'],
-        barRatio: 0.4,
-        xLabelAngle: 35,
-        hideHover: 'auto',
-        resize: true
-    });
-
-
 });
-
