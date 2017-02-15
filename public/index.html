@@ -596,6 +596,34 @@
                 </div>
                 <div class="modal-body">
                     <p>Реадктирование обьекта 'Электрическая подстанция'</p>
+                    <div class="row-fluid">
+                        <label for="">Новая модель:</label>
+                        <input type="text" name="" value="" placeholder="Имя новой модели...">
+                        <div class="btn-group btn-group-sm">
+                            <button type="button" class="btn btn-success" id="btn_edit_model" onclick="event_edit_table()" disabled="disabled"> Сохранить </button>
+                            <button type="button" class="btn btn-default" id="btn_delet_model" onclick="delet_table_model()" disabled="disabled"> Отменить </button>
+                        </div>
+                    </div>
+                    <hr class="separator">
+                    <div class="row-fluid">
+                        <label for="">Выбор модели:</label>
+                        <select id="select_model" onchange="select_on_model()"></select>
+                        <button type="button" class="btn btn-success"> Сохранить </button>
+                        <button type="button" class="btn btn-default"> Отменить </button>
+                    </div>
+                    <hr class="separator">
+                    <div class="row-fluid">
+                        <table class="table table-hover" id="table_current_model">
+                            <thead>
+                                <tr>
+                                    <th>Время</th>
+                                    <th>Значение</th>
+                                    <!--                           <th>Значение</th> -->
+                                </tr>
+                            </thead>
+                            <tbody id="table_model_body"></tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -713,23 +741,23 @@
                                 <select id="select_model" onchange="select_on_model()" class="form-control"></select>
                             </div>
                             <div class="col-sm-2">
-                                <button type="button" id="btn_edit_model" onclick="event_edit_table()" disabled="disabled" class="btn btn-default">Редактировать</button> 
+                                <button type="button" id="btn_edit_model" onclick="event_edit_table()" disabled="disabled" class="btn btn-default">Редактировать</button>
                             </div>
                             <div class="col-sm-2">
-                                <button type="button" id="btn_delet_model" onclick="delet_table_model()" disabled="disabled" class="btn btn-default">Удалить</button> 
+                                <button type="button" id="btn_delet_model" onclick="delet_table_model()" disabled="disabled" class="btn btn-default">Удалить</button>
                             </div>
                         </div>
                         <hr class="separator">
-                    <table class="table table-hover" id="table_current_model">
-                      <thead>
-                        <tr>
-                          <th>Время</th>
-                          <th>Значение</th>
-<!--                           <th>Значение</th> -->
-                        </tr>
-                      </thead>
-                      <tbody id="table_model_body"></tbody>
-                    </table>
+                        <table class="table table-hover" id="table_current_model">
+                            <thead>
+                                <tr>
+                                    <th>Время</th>
+                                    <th>Значение</th>
+                                    <!--                           <th>Значение</th> -->
+                                </tr>
+                            </thead>
+                            <tbody id="table_model_body"></tbody>
+                        </table>
                     </form>
                 </div>
                 <div class="modal-footer">
