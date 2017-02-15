@@ -133,8 +133,8 @@ var test;
 
 //Ну и гавно коня
 function load_model() {
-var xmlHttp = new XMLHttpRequest();
-var test;
+  var xmlHttp = new XMLHttpRequest();
+  var test;
     xmlHttp.open('GET','http://82.117.171.124:9099/modelCollections');
     xmlHttp.onload = function() {
       if (xmlHttp.status >= 200 && xmlHttp.status < 400) {
