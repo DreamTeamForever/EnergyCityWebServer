@@ -217,8 +217,6 @@ function changeStateButtom(isActive, btn_id) {
 }
 
 function create_table_model() {
-  changeStateButtom(false,"btn_create_model");
-  changeStateButtom(true,"btn_add_model");
   var new_name = $("#create_model").val();
   for (var i =0; i < table_model.length; i++) {
     if(table_model[i].model_name == new_name){
@@ -226,6 +224,8 @@ function create_table_model() {
       return false;
     }
   }
+  changeStateButtom(false,"btn_create_model");
+  changeStateButtom(true,"btn_add_model");
   create_table(new_name);
   console.log("test");
 }
