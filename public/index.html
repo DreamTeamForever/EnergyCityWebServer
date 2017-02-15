@@ -694,30 +694,38 @@
                 </div>
                 <div class="modal-body">
                     <form id="form_model" class="form-horizontal" role="form">
-                        <div class="form-group">
+                        <div class="form-group" id="form_create_model">
                             <label for="create_model" class="col-sm-4 control-label">Новая модель: </label>
                             <div class="col-sm-4">
                                 <input type="create" class="form-control" id="create_model" placeholder="Имя новой модели...">
                             </div>
-                            <div class="col-sm-4">
-                                <button type="button" id="btn_create_model" class="btn btn-default">Создать</button>
+                            <div class="col-sm-2">
+                                <button type="button" id="btn_create_model" onclick="create_table_model()" class="btn btn-default">Создать</button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" id="btn_add_model" onclick="add_table_model()" disabled="disabled" class="btn btn-default">Добавить</button>
                             </div>
                         </div>
+                        <hr class="separator">
                         <div class="form-group">
                             <label for="select_model" class="col-sm-4 control-label">Выбор модели: </label>
                             <div class="col-sm-4">
                                 <select id="select_model" onchange="select_on_model()" class="form-control"></select>
                             </div>
-                            <div class="col-sm-4">
-                                <button type="button" id="btn_edit_model" onclick="event_edit_table()" class="btn btn-default">Редактировать</button> 
+                            <div class="col-sm-2">
+                                <button type="button" id="btn_edit_model" onclick="event_edit_table()" disabled="disabled" class="btn btn-default">Редактировать</button> 
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" id="btn_delet_model" onclick="delet_table_model()" disabled="disabled" class="btn btn-default">Удалить</button> 
                             </div>
                         </div>
+                        <hr class="separator">
                     <table class="table table-hover" id="table_current_model">
                       <thead>
                         <tr>
                           <th>Время</th>
                           <th>Значение</th>
-                          <th>Значение</th>
+<!--                           <th>Значение</th> -->
                         </tr>
                       </thead>
                       <tbody id="table_model_body"></tbody>

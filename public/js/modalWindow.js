@@ -160,8 +160,11 @@ function renderModel(data) {
 
 //do not fuck, how it works
 function select_on_model() {
+  changeStateButtom(true,"btn_edit_model");
+  changeStateButtom(true,"btn_delet_model");
   $("#table_model_body tr").remove(); 
   var model_n = document.getElementById("select_model").value;
+  console.log("Select item: "+model_n);
   for(var i = 0; i < table_model.length; i++) {
     if(model_n==table_model[i].model_name){
       for(var j = 0; j < table_model[i].data.length; j++ ) {
@@ -172,12 +175,12 @@ function select_on_model() {
       }
     }
   }
-  //event_edit_table();
 }
 
 
 //Херня для таблицы I
 function event_edit_table() {
+  changeStateButtom(false,"btn_edit_model");
   $(function() {
     $('td').click(function(e) { 
       var t = e.target || e.srcElement; 
@@ -195,6 +198,7 @@ function event_edit_table() {
       }); 
     }); 
   });
+
   //Херня для таблицы II + Enter
   $(window).keydown(function(event){ 
     if(event.keyCode == 13) {
@@ -202,6 +206,107 @@ function event_edit_table() {
     } 
   });
 }
+
+ //Херня для кнопки I - balalayka
+function changeStateButtom(isActive, btn_id) {
+  if(isActive){
+    document.getElementById(btn_id).removeAttribute("disabled"); 
+  } else {
+    document.getElementById(btn_id).setAttribute("disabled","disabled");
+  }
+}
+
+function create_table_model() {
+  changeStateButtom(false,"btn_create_model");
+  changeStateButtom(true,"btn_add_model");
+  var new_name = $("#create_model").val();
+  for (var i =0; i < table_model.length; i++) {
+    if(table_model[i].model_name == new_name){
+      $("#form_create_model").attr("class","form-group has-error");
+      return false;
+    }
+  }
+  create_table(new_name);
+  console.log("test");
+}
+
+function create_table(n_m) {
+  $("#table_model_body tr").remove(); 
+  for(var j = 0; j < 24; j++ ) {
+    var table_c   = document.getElementById('table_current_model').getElementsByTagName('tbody')[0];
+    var new_row   = table_c.insertRow(table_c.rows.length);
+    new_row.appendChild(document.createElement("TH")).innerText = j ;
+    new_row.insertCell(1).innerText = 0;
+  }
+  event_edit_table();
+
+}
+
+function add_table_model(){
+  changeStateButtom(true,"btn_create_model");
+  changeStateButtom(false,"btn_add_model");
+  var new_name = $("#create_model").val();
+  add_model_object(new_name);
+  $("#select_model option").remove();
+  renderModel(table_model);
+  $("#create_model").val("");
+}
+
+
+function add_model_object(newObject) {
+  var model_object = {
+    model_id: "",
+    model_name: "",
+    model_type: "",
+    data: []
+  };
+  model_object.model_id = newObject;
+  model_object.model_name = newObject;
+  model_object.model_type = "vse_huina"
+  model_object.data = get_table_data($("#table_current_model  > tbody"));
+  table_model.push(model_object);
+  // for (var i = 0; i < table_model.length; i++) {
+  //   console.log(table_model[i].data)
+  // }
+}
+
+function delet_table_model() {
+  changeStateButtom(false,"btn_delet_model");
+  changeStateButtom(false,"btn_edit_model");
+  var name = $("#select_model").val();
+  for (var i = 0; i < table_model.length; i++) {
+    if(name == table_model[i].model_name){
+      table_model.splice(i,1);
+      break;
+    }
+  }
+  $("#select_model option").remove();
+  $("#table_model_body tr").remove();
+  renderModel(table_model);
+}
+
+function get_table_data(table) {
+    var data = [];
+    table.find('tr').each(function (rowIndex, r) {
+        var data_model = {
+          id: "",
+          value: ""
+        };
+        $(this).find('th,td').each(function (colIndlex, c) {
+          if(colIndlex == 0){
+            data_model.id = c.textContent; 
+          } else {
+            data_model.value = c.textContent; 
+          }           
+        });
+        data.push(data_model);
+        //console.log(data_model);
+    });
+    //console.log(data);
+    return data;
+}
+
+
 
 //магия бляяяять, Херня для таблицы III
 //$('#odin').editable();
