@@ -34,9 +34,9 @@ $(function() {
 
     var cy = window.cy = cytoscape({
         container: document.getElementById('cy'),
-
-        minZoom: 0.1,
-        maxZoom: 100,
+        autoungrabify: true,
+        minZoom: 0.5,
+        maxZoom: 10,
         wheelSensitivity: 0.1,
 
         // panningEnabled: false,
