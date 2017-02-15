@@ -3,25 +3,25 @@ var wind_select   = document.getElementById("input_wind_model");
 var save_settings = document.getElementById("btn_save_settings");
 var game_speed    = document.getElementById("input_speed");
 var table_model;
-edit_table_model();
 
-var model_request = new XMLHttpRequest();
-model_request.open('GET', 'http://localhost/data/default/table_models.json');
-model_request.onload = function() {
+
+// var model_request = new XMLHttpRequest();
+// model_request.open('GET', 'http://localhost/data/default/table_models.json');
+// model_request.onload = function() {
   
-  if (model_request.status >= 200 && model_request.status < 400) {
-    var model_select = JSON.parse(model_request.responseText);
-    renderHTML(model_select);
-  } else {
-    console.log("Server error code: "+model_request.status);
-  }
-};
+//   if (model_request.status >= 200 && model_request.status < 400) {
+//     var model_select = JSON.parse(model_request.responseText);
+//     renderHTML(model_select);
+//   } else {
+//     console.log("Server error code: "+model_request.status);
+//   }
+// };
 
-model_request.onerror = function() {
-  console.log("Connection error");
-};
+// model_request.onerror = function() {
+//   console.log("Connection error");
+// };
 
-model_request.send();
+// model_request.send();
 
 save_settings.addEventListener("click", function() {
   writeCookie("game_speed",game_speed.value,10);
@@ -32,9 +32,10 @@ save_settings.addEventListener("click", function() {
 
 $(document).ready(function() {
   updateModalSettings();
-  
-    // testSocet();
-   //  testSocet_2();
+  load_model();
+  // edit_table_model();
+  //   // testSocet();
+  //    testSocet_2();
 });
 
 function updateModalSettings(){
@@ -46,6 +47,8 @@ function updateModalSettings(){
 }
 
 function renderHTML(data) {
+  $("#input_sol_model option").remove();
+  $("#input_wind_model option").remove();
   for (var i = 0; i < data.length; i++) {
     var option = document.createElement("option");
     option.text = data[i].model_name;
@@ -108,11 +111,13 @@ xmlHttp.send(postData);
 
 function testSocet_2() {
 var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open('GET','http://82.117.171.124:9099/test100500');
+var test;
+    xmlHttp.open('GET','http://82.117.171.124:9099/modelCollections');
     xmlHttp.onload = function() {
       if (xmlHttp.status >= 200 && xmlHttp.status < 400) {
-        //var test = JSON.parse(xmlHttp.responseText);
-        console.log(xmlHttp.responseText);
+        //console.log("Server error code: "+xmlHttp.responseText);
+        test = JSON.parse(xmlHttp.responseText);
+        console.log("Server code: "+test);
         //renderHTML(model_select);
       } else {
         console.log("Server error code: "+xmlHttp.status);
@@ -121,8 +126,40 @@ var xmlHttp = new XMLHttpRequest();
     xmlHttp.send();
 };
 
+
+
 //Херня для таблицы 0
 //http://www.json-generator.com/api/json/get/cgvGBbDrJu?indent=2
+
+//Ну и гавно коня
+function load_model() {
+var xmlHttp = new XMLHttpRequest();
+var test;
+    xmlHttp.open('GET','http://82.117.171.124:9099/modelCollections');
+    xmlHttp.onload = function() {
+      if (xmlHttp.status >= 200 && xmlHttp.status < 400) {
+        table_model = JSON.parse(xmlHttp.responseText);
+        renderModel(table_model);
+        renderHTML(table_model);
+      } else {
+        console.log("Server error code: "+xmlHttp.status);
+      }
+    }
+    xmlHttp.send();
+};
+
+function save_model(data) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open('POST','http://82.117.171.124:9099/modelCollections');
+  xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+  xmlHttp.onreadystatechange = function() {
+    if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      console.log(xmlHttp.responseText);
+    }
+  }
+  xmlHttp.send(data);
+};
+
 
 function edit_table_model() {
   var table_model_r = new XMLHttpRequest();
@@ -145,16 +182,6 @@ function renderModel(data) {
     option.text = data[i].model_name;
     input_model.add(option, input_model[i]); 
   }
-
-
-  // var x = document.createElement("TR");
-  //   x.setAttribute("id", "myTr");
-  //   document.getElementById("myTable").appendChild(x);
-
-  //   var y = document.createElement("TD");
-  //   var t = document.createTextNode("new cell");
-  //   y.appendChild(t);
-  //   document.getElementById("myTr").appendChild(y);
 }
 
 //do not fuck, how it works
@@ -305,6 +332,16 @@ function get_table_data(table) {
     });
     //console.log(data);
     return data;
+}
+
+function save_changes_model() {
+  save_model(JSON.stringify(table_model));
+}
+
+function discard_changes_model() {
+  $("#select_model option").remove();
+  $("#table_model_body tr").remove();
+  load_model();
 }
 
 
