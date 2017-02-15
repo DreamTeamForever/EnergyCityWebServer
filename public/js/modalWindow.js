@@ -107,7 +107,6 @@ xmlHttp.send(postData);
 };
 
 function testSocet_2() {
-
 var xmlHttp = new XMLHttpRequest();
     xmlHttp.open('GET','http://82.117.171.124:9099/test100500');
     xmlHttp.onload = function() {
@@ -224,6 +223,7 @@ function create_table_model() {
       return false;
     }
   }
+  $("#form_create_model").attr("class","form-group has-success");
   changeStateButtom(false,"btn_create_model");
   changeStateButtom(true,"btn_add_model");
   create_table(new_name);
@@ -245,6 +245,7 @@ function create_table(n_m) {
 function add_table_model(){
   changeStateButtom(true,"btn_create_model");
   changeStateButtom(false,"btn_add_model");
+  $("#form_create_model").attr("class","form-group");
   var new_name = $("#create_model").val();
   add_model_object(new_name);
   $("#select_model option").remove();
