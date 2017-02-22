@@ -103,24 +103,6 @@
                         <li>
                             <a href="#"><i class="fa fa-building-o fa-fw"></i> Потребители<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <!--                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#YPWKPNMZ"><i class="fa fa-university fa-fw"></i> Больница №1</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#LHMKJAAA"><i class="fa fa-industry fa-fw"></i> Завод "Красный трактор"</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#UKWUHVOT"><i class="fa fa-hospital-o fa-fw"></i> Госпиталь №3</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#QYPYHOUK"><i class="fa fa-hospital-o fa-fw"></i> Госпиталь №6</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#PYUKZHHY"><i class="fa fa-building-o fa-fw"></i> Микрорайон "№9"</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#QMPSEKWM"><i class="fa fa-building-o fa-fw"></i> Микрорайон "№13"</a>
-                                </li> -->
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#FUPUZACY">Госпиталь #1</a>
                                 </li>
@@ -157,22 +139,6 @@
                         <li>
                             <a href="#"><i class="fa fa-battery-full fa-fw"></i> Поставщики<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <!--                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#VJRVKJSB"><i class="fa fa-sun-o fa-fw"></i> Солнечная батарея №1</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#NYHIQNBU"><i class="fa fa-sun-o fa-fw"></i> Солнечная батарея №2</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#SOEZTKNS"><i class="fa fa-battery-full fa-fw"></i> Аккамулятор №1</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#LYVVNRCN"><i class="fa fa-mixcloud fa-fw"></i> Ветрогенератор №1</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#DXRHKBSB"><i class="fa fa-mixcloud fa-fw"></i> Ветрогенератор №2</a>
-                                </li> -->
-
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#ADLDXAIY">Электрический аккумулятор #1</a>
                                 </li>
@@ -203,12 +169,6 @@
                         <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Подстанции<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <!--                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#QQZVFVQP"><i class="fa fa-bars fa-fw"></i> Подстанция №1</a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#XJAVJSII"><i class="fa fa-minus fa-fw"></i> Миниподстанция №2</a>
-                                </li> -->
                                 <li>
                                     <a href="#" data-toggle="modal" data-target="#JACGEIKD">Электрическая станция</a>
                                 </li>
@@ -566,9 +526,28 @@
                 </div>
                 <div class="modal-body">
                     <p>Реадктирование обьекта 'Солнечная батарея'</p>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="selectModel" class="col-sm-2 control-label">Модель:</label>
+                            <div class="col-sm-6">
+                                <select id="selectModel" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="switchOff" class="col-sm-2 control-label">Отключить:</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" checked data-toggle="toggle" data-on="Вкл" data-off="Выкл" data-onstyle="success" data-size="small">
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Сохранить</button>
+                            <button type="exit" class="btn btn-default">Отменить</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -636,9 +615,8 @@
         </div>
     </div>
 
-    <div id="NYHIQNBU" class="modal fade" role="dialog">
+<!--     <div id="NYHIQNBU" class="modal fade" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -667,13 +645,9 @@
                         </div>
                     </form>
                 </div>
-                <!-- div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-      </div> -->
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Форма игровых настройек-->
     <div id="game_settings" class="modal fade" role="dialog">
         <div class="modal-dialog">

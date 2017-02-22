@@ -16,8 +16,7 @@ var object_model; //Данные описывающие объекты и их �
 $(document).ready(function() {
   loadData("modelCollections",loadModel);
   loadData("gameSettings",lodaGameSettings);
-  //updateModalSettings();
-  //load_model();
+  loadData("objectCollections",lodaObject);
 });
 //-----------------------------------------
 
@@ -246,6 +245,7 @@ function discardChangesModel() {
 //-----------------------------------------
 //-----------------------------------------
 
+
 //----ИГРОВЫЕ НАСТРОЙКИ-----------
 //----Кэширование данных--------
 function lodaGameSettings(data){
@@ -302,3 +302,29 @@ function discardChangesSettings() {
 //-----------------------------------------
 //-----------------------------------------
 
+
+//----Объекты и их настройки-----------
+//----Кэширование данных--------
+function lodaObject(data){
+  object_model = data;
+}
+//-----------------------------------------
+
+//----Обновить селектор--------
+$('#CEHPZNNF').on('show.bs.modal', function() {
+  updateObjectModel(object_model);
+});
+//-----------------------------------------
+//-----------------------------------------
+
+
+//----ЭТО МОЖНО СДЕЛАТЬ ПОДРУГОМУ--------
+//----Обновить селектор--------
+function updateObjectModel(data) {
+  $("#selectModel option").remove();
+  for (var i = 0; i < table_model.length; i++) {
+    $('#selectModel').append($("<option></option>").attr("value","").text(table_model[i].model_name));
+  }
+}
+
+//-----------------------------------------
