@@ -66,6 +66,24 @@ function saveData(url,data) {
 };
 //-----------------------------------------
 
+//----Начало и конец игры--------
+$('#satrtStop').change(function() {
+  var game = {
+    game_state: ""
+  };
+  game.game_state = $(this).prop('checked')
+  if($(this).prop('checked')){
+    saveData("satrtGame",JSON.stringify(game));
+    //вырубить все кнопки
+    console.log(game.game_state);
+  } else {
+    saveData("stopGame",JSON.stringify(game));
+    //врубить все кнопки
+    console.log(game.game_state);
+  }
+})
+//-----------------------------------------
+
 //----НАСТРОЙКИ ТАБЛИЦ МОДЕЛЕЙ-----------
 //----Загрузка данных о моделях--------
 function loadModel(data) {
@@ -306,142 +324,143 @@ function discardChangesSettings() {
 //----Обновить окно--------
 $('#FUPUZACY').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("FUPUZACY");
+discardForBtn("FUPUZACY");
 //-----------------------------------------
 //----Обновить окно--------
 $('#YWGQZWKS').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("YWGQZWKS");
+discardForBtn("YWGQZWKS");
 //-----------------------------------------
 //----Обновить окно--------
 $('#OONFKJAP').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("OONFKJAP");
+discardForBtn("OONFKJAP");
 //-----------------------------------------
 //----Обновить окно--------
 $('#ODWTMDBY').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("ODWTMDBY");
+discardForBtn("ODWTMDBY");
 //-----------------------------------------
 //----Обновить окно--------
 $('#OPFLGRDB').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("OPFLGRDB");
+discardForBtn("OPFLGRDB");
 //-----------------------------------------
 //----Обновить окно--------
 $('#WXKEARFV').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("WXKEARFV");
+discardForBtn("WXKEARFV");
 //-----------------------------------------
 //----Обновить окно--------
 $('#CQPQIOBW').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("CQPQIOBW");
+discardForBtn("CQPQIOBW");
 //-----------------------------------------
 //----Обновить окно--------
 $('#BCFUYTKE').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("BCFUYTKE");
+discardForBtn("BCFUYTKE");
 //-----------------------------------------
 //----Обновить окно--------
 $('#CWWAWXCC').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("CWWAWXCC");
+discardForBtn("CWWAWXCC");
 //-----------------------------------------
 //----Обновить окно--------
 $('#NKIXIFEX').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("NKIXIFEX");
+discardForBtn("NKIXIFEX");
 //-----------------------------------------
 //----Обновить окно--------
 $('#ADLDXAIY').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("ADLDXAIY");
+discardForBtn("ADLDXAIY");
 //-----------------------------------------
 //----Обновить окно--------
 $('#PWOQPTJU').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("PWOQPTJU");
+discardForBtn("PWOQPTJU");
 //-----------------------------------------
 //----Обновить окно--------
 $('#QUCLMOBF').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("QUCLMOBF");
+discardForBtn("QUCLMOBF");
 //-----------------------------------------
 //----Обновить окно--------
 $('#HTRRGVVP').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("HTRRGVVP");
+discardForBtn("HTRRGVVP");
 //-----------------------------------------
 //----Обновить окно--------
 $('#SCTZRYPP').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("SCTZRYPP");
+discardForBtn("SCTZRYPP");
 //-----------------------------------------
 //----Обновить окно--------
 $('#PEBYPPPI').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("PEBYPPPI");
+discardForBtn("PEBYPPPI");
 //-----------------------------------------
 //----Обновить окно--------
 $('#BETIBSFU').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("BETIBSFU");
+discardForBtn("BETIBSFU");
 //-----------------------------------------
 //----Обновить окно--------
 $('#CEHPZNNF').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("CEHPZNNF");
+discardForBtn("CEHPZNNF");
 //-----------------------------------------
 //----Обновить окно--------
 $('#JACGEIKD').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("JACGEIKD");
+discardForBtn("JACGEIKD");
 //-----------------------------------------
 //----Обновить окно--------
 $('#WKYDPBKW').on('show.bs.modal', function() {
   updateCustomSelect(this.id,object_model);
-  saveForBtn(this.id);
-  discardForBtn(this.id);
 });
+saveForBtn("WKYDPBKW");
+discardForBtn("WKYDPBKW");
+
 //-----------------------------------------
 //-----------------------------------------
 
@@ -495,4 +514,6 @@ function discardForBtn(formId) {
 }
 //-----------------------------------------
 //-----------------------------------------
+
+
 
