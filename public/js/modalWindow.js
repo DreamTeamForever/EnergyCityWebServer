@@ -83,11 +83,8 @@ $('#model_settings').on('show.bs.modal', function() {
 //----Обновление селектора-----------
 function updateSelectModel(data) {
   $("#select_model option").remove();
-  var input_model = document.getElementById("select_model");
   for (var i = 0; i < data.length; i++) {
-    var option = document.createElement("option");
-    option.text = data[i].model_name;
-    input_model.add(option, input_model[i]); 
+    $('#select_model').append($("<option></option>").attr("value",data[i].model_name).text(data[i].model_name));
   }
 }
 //-----------------------------------------
@@ -303,28 +300,199 @@ function discardChangesSettings() {
 //-----------------------------------------
 
 
-//----Объекты и их настройки-----------
-//----Кэширование данных--------
+
+
+//----ЭТО МОЖНО СДЕЛАТЬ ПОДРУГОМУ--------
+//----Обновить окно--------
+$('#FUPUZACY').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#YWGQZWKS').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#OONFKJAP').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#ODWTMDBY').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#OPFLGRDB').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#WXKEARFV').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#CQPQIOBW').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#BCFUYTKE').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#CWWAWXCC').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#NKIXIFEX').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#ADLDXAIY').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#PWOQPTJU').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#QUCLMOBF').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#HTRRGVVP').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#SCTZRYPP').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#PEBYPPPI').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#BETIBSFU').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#CEHPZNNF').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#JACGEIKD').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//----Обновить окно--------
+$('#WKYDPBKW').on('show.bs.modal', function() {
+  updateCustomSelect(this.id,object_model);
+  saveForBtn(this.id);
+  discardForBtn(this.id);
+});
+//-----------------------------------------
+//-----------------------------------------
+
+
+//----Объекты и их настройки---------------
+//----Кэширование данных-------------------
 function lodaObject(data){
   object_model = data;
 }
 //-----------------------------------------
 
 //----Обновить селектор--------
-$('#CEHPZNNF').on('show.bs.modal', function() {
-  updateObjectModel(object_model);
-});
-//-----------------------------------------
-//-----------------------------------------
-
-
-//----ЭТО МОЖНО СДЕЛАТЬ ПОДРУГОМУ--------
-//----Обновить селектор--------
-function updateObjectModel(data) {
-  $("#selectModel option").remove();
+function updateCustomSelect(formId,data) {
+  $("#"+formId).find(".form-control").children("option").remove();
   for (var i = 0; i < table_model.length; i++) {
-    $('#selectModel').append($("<option></option>").attr("value","").text(table_model[i].model_name));
+    $("#"+formId).find(".form-control").append($("<option></option>").attr("value",table_model[i].model_name).text(table_model[i].model_name));
+  }
+  for (var i = 0; i < data.length; i++) {
+    if(data[i].object_id == formId){
+      $("#"+formId).find(".form-control").val(data[i].table_model);
+      changeCustomToggle(formId,data[i].active);
+    }
   }
 }
-
 //-----------------------------------------
+
+//----выствавить галку---------------------
+function changeCustomToggle(formId,state){
+  $("#"+formId).find("input").prop('checked',state).change();
+}
+//-----------------------------------------
+
+//----Сохранить настройки---------
+function saveForBtn(formId) {
+  $("#"+formId).find(".modal-footer").find(".btn.btn-success").click(function(){
+    for (var i = 0; i < object_model.length; i++) {
+      if(object_model[i].object_id == formId){
+        object_model[i].table_model = $("#"+formId).find(".form-control").val();
+        object_model[i].active = $("#"+formId).find("input").prop('checked');
+        saveData("objectCollections",JSON.stringify(object_model)); 
+      }
+    }   
+  });
+}
+
+//----Отменить настройки---------
+function discardForBtn(formId) {
+  $("#"+formId).find(".modal-footer").find(".btn.btn-default").click(function(){
+    updateCustomSelect(formId,object_model);
+  });
+}
+//-----------------------------------------
+//-----------------------------------------
+
