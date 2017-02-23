@@ -1,7 +1,96 @@
-/* cytoscape js selector demo
-moved to http://codepen.io/yeoupooh/pen/BjWvRa
- */
-$(function() {
+var graphData;
+
+setInterval('testTest()',10000);
+
+function testTest() {
+    console.log("asdadsasdasd");
+    loadData("testGraphData",loadGr);
+}
+
+function loadGr(data) {
+    
+    graphData = data;
+    cytoscape({
+    container: document.getElementById('cy'),
+    autoungrabify: true,
+    minZoom: 0.5,
+    maxZoom: 10,
+    wheelSensitivity: 0.1,
+    layout: { name: 'dagre'},
+    style: [{
+                selector: 'node',
+                style: { 'width': 60, 'height': 60, 'content': 'data(label)', 'text-valign': 'top', 'color': '#1ab394', 'background-fit': 'cover', 'border-color': '#000', 'border-width': 5, 'border-opacity': 0.5 }
+            },
+            {
+                selector: 'edge',
+                style: { 'width': 3, 'target-arrow-shape': 'triangle', 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' }
+            },
+            {
+                selector: ':selected',
+                style: { 'background-color': 'yellow', 'line-color': 'yellow', 'target-arrow-color': 'black', 'source-arrow-color': 'black' }
+            },
+            {
+                selector: 'edge:selected',
+                style: { 'width': 20 }
+            },
+
+            {
+                selector: 'node[type = "stick"]',
+                style: { 'width': 6, 'height': 6 }
+            },
+            {
+                selector: 'node[type = "factory"]',
+                style: { 'background-image': 'image/factory.jpg'}
+            },
+            {
+                selector: 'node[type = "accumulate"]',
+                style: { 'background-image': 'image/accamulator.jpg' }
+            },
+            {
+                selector: 'node[type = "hospital"]',
+                style: {'background-image': 'image/hospital.jpg' }
+            },
+            {
+                selector: 'node[type = "district"]',
+                style: { 'background-image': 'image/district.jpg' }
+            },
+            {
+                selector: 'node[type = "disel"]',
+                style: { 'background-image': 'image/diesel.jpg' }
+            },
+            {
+                selector: 'node[type = "wind"]',
+                style: { 'background-image': 'image/wind.jpg' }
+            },
+            {
+                selector: 'node[type = "sun"]',
+                style: { 'background-image': 'image/solar.jpg' }
+            },
+            {
+                selector: 'node[type = "electric_substaion"]',
+                style: { 'background-image': 'image/electric.jpg' }
+            },
+            {
+                selector: 'node[type = "mini_electric_substaion"]',
+                style: { 'background-image': 'image/electric.jpg' }
+            },
+            {
+                selector: 'node[type = "stick"]',
+                style: { 'background-image': 'image/stcik.png' }
+            },
+            {
+                selector: '#electric_substaion',
+                style: { 'background-image': 'image/electric.jpg' }
+            }
+        ],
+    elements: graphData
+});
+};
+
+loadData("testGraphData",loadGr);
+
+
+// $(function() {
 
     var win = $(window);
 
@@ -32,610 +121,84 @@ $(function() {
         }
     };
 
-    var cy = window.cy = cytoscape({
-        container: document.getElementById('cy'),
-        autoungrabify: true,
-        minZoom: 0.5,
-        maxZoom: 10,
-        wheelSensitivity: 0.1,
-
-        // panningEnabled: false,
-        //boxSelectionEnabled: true,
-        //autounselectify: false,
-        //selectionType: 'additive',
-        //autoungrabify: true,
-
-        layout: {
-            name: 'dagre'
-        },
-
-        style: [{
+    var cy = window.cy = cytoscape(
+{
+    container: document.getElementById('cy'),
+    autoungrabify: true,
+    minZoom: 0.5,
+    maxZoom: 10,
+    wheelSensitivity: 0.1,
+    layout: { name: 'dagre'},
+    style: [{
                 selector: 'node',
-                style: {
-                    'width': 60,
-                    'height': 60,
-                    'content': 'data(label)',
-                    // 'text-opacity': 0.5,
-                    'text-valign': 'top',
-                    'color': '#1ab394',
-                    // 'background-color': nodeOptions.normal.bgColor,
-                    // 'text-outline-width': 1,
-                    // 'text-outline-color': '#222'
-                    'background-fit': 'cover',
-                    'border-color': '#000',
-                    'border-width': 5,
-                    'border-opacity': 0.5
-                }
+                style: { 'width': 60, 'height': 60, 'content': 'data(label)', 'text-valign': 'top', 'color': '#1ab394', 'background-fit': 'cover', 'border-color': '#000', 'border-width': 5, 'border-opacity': 0.5 }
             },
-
             {
                 selector: 'edge',
-                style: {
-                    'width': 3,
-                    'target-arrow-shape': 'triangle',
-                    'line-color': 'data(color)',
-                    'target-arrow-color': 'data(color)', //'#9dbaea',
-                    // 'curve-style': 'bezier'
-                }
+                style: { 'width': 3, 'target-arrow-shape': 'triangle', 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' }
             },
-
             {
                 selector: ':selected',
-                style: {
-                    'background-color': 'yellow',
-                    'line-color': 'yellow',
-                    'target-arrow-color': 'black',
-                    'source-arrow-color': 'black',
-                }
+                style: { 'background-color': 'yellow', 'line-color': 'yellow', 'target-arrow-color': 'black', 'source-arrow-color': 'black' }
             },
-
             {
                 selector: 'edge:selected',
-                style: {
-                    'width': 20
-                }
+                style: { 'width': 20 }
             },
 
             {
                 selector: 'node[type = "stick"]',
-                style: {
-                    'width': 6,
-                    'height': 6,
-                }
+                style: { 'width': 6, 'height': 6 }
             },
             {
                 selector: 'node[type = "factory"]',
-                style: {
-                    'background-image': 'image/factory.jpg',
-                }
+                style: { 'background-image': 'image/factory.jpg'}
             },
             {
                 selector: 'node[type = "accumulate"]',
-                style: {
-                    'background-image': 'image/accamulator.jpg',
-                }
+                style: { 'background-image': 'image/accamulator.jpg' }
             },
             {
                 selector: 'node[type = "hospital"]',
-                style: {
-                    'background-image': 'image/hospital.jpg',
-                }
+                style: {'background-image': 'image/hospital.jpg' }
             },
             {
                 selector: 'node[type = "district"]',
-                style: {
-                    'background-image': 'image/district.jpg',
-                }
+                style: { 'background-image': 'image/district.jpg' }
             },
             {
                 selector: 'node[type = "disel"]',
-                style: {
-                    'background-image': 'image/diesel.jpg',
-                }
+                style: { 'background-image': 'image/diesel.jpg' }
             },
             {
                 selector: 'node[type = "wind"]',
-                style: {
-                    'background-image': 'image/wind.jpg',
-                }
+                style: { 'background-image': 'image/wind.jpg' }
             },
             {
                 selector: 'node[type = "sun"]',
-                style: {
-                    'background-image': 'image/solar.jpg',
-                }
+                style: { 'background-image': 'image/solar.jpg' }
             },
             {
                 selector: 'node[type = "electric_substaion"]',
-                style: {
-                    'background-image': 'image/electric.jpg',
-                }
+                style: { 'background-image': 'image/electric.jpg' }
             },
             {
                 selector: 'node[type = "mini_electric_substaion"]',
-                style: {
-                    'background-image': 'image/electric.jpg',
-                }
+                style: { 'background-image': 'image/electric.jpg' }
             },
             {
                 selector: 'node[type = "stick"]',
-                style: {
-                    'background-image': 'image/stcik.png',
-                }
+                style: { 'background-image': 'image/stcik.png' }
             },
             {
                 selector: '#electric_substaion',
-                style: {
-                    'background-image': 'image/electric.jpg',
-                }
+                style: { 'background-image': 'image/electric.jpg' }
             }
         ],
+    elements: graphData
+});
 
-        elements: {
-            nodes: [
-                // { data: { id: 'factory', label: 'Фабрика' } },
-                // { data: { id: 'hospital', label: 'Госпиталь' } },
-                // { data: { id: 'district', label: 'Микрорайон' } },
-                // { data: { id: 'diesel_power', label: 'Дизель генератор' } },
-                // { data: { id: 'wind_power', label: 'Ветряк' } },
-                // { data: { id: 'sun_power', label: 'Солнечная батарея' } },
-                // { data: { id: 'electric_substaion', label: 'Электрическая станция' } },
-                // { data: { id: 'stolby', label: '' } },
-                // { data: { id: 'mini_electric_substaion', label: 'Электрическая подстанция' } }
-                {
-                    data: {
-                        id: 'factory_0',
-                        label: 'Фабрика #1',
-                        type: 'factory'
-                    }
-                },
-                {
-                    data: {
-                        id: 'factory_1',
-                        label: 'Фабрика #2',
-                        type: 'factory'
-                    }
-                },
-                {
-                    data: {
-                        id: 'accumulate_0',
-                        label: 'Электрический аккумулятор #1',
-                        type: 'accumulate'
-                    }
-                },
-                {
-                    data: {
-                        id: 'accumulate_1',
-                        label: 'Электрический аккумулятор #2',
-                        type: 'accumulate'
-                    }
-                },
-                {
-                    data: {
-                        id: 'accumulate_2',
-                        label: 'Электрический аккумулятор #3',
-                        type: 'accumulate'
-                    }
-                },
-                {
-                    data: {
-                        id: 'hospital_0',
-                        label: 'Госпиталь #1',
-                        type: 'hospital'
-                    }
-                },
-                {
-                    data: {
-                        id: 'hospital_1',
-                        label: 'Госпиталь #2',
-                        type: 'hospital'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_0',
-                        label: 'Микрорайон #1',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_1',
-                        label: 'Микрорайон #2',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_2',
-                        label: 'Микрорайон #3',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_3',
-                        label: 'Микрорайон #4',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_4',
-                        label: 'Микрорайон #5',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'district_5',
-                        label: 'Микрорайон #6',
-                        type: 'district'
-                    }
-                },
-                {
-                    data: {
-                        id: 'diesel_power_0',
-                        label: 'Дизель генератор #1',
-                        type: 'disel'
-                    }
-                },
-                {
-                    data: {
-                        id: 'diesel_power_1',
-                        label: 'Дизель генератор #2',
-                        type: 'disel'
-                    }
-                },
-                {
-                    data: {
-                        id: 'diesel_power_2',
-                        label: 'Дизель генератор #3',
-                        type: 'disel'
-                    }
-                },
-                {
-                    data: {
-                        id: 'wind_power_0',
-                        label: 'Ветрогенератор',
-                        type: 'wind'
-                    }
-                },
-                {
-                    data: {
-                        id: 'sun_power_0',
-                        label: 'Солнечная батарея',
-                        type: 'sun'
-                    }
-                },
-                {
-                    data: {
-                        id: 'electric_substaion_0',
-                        label: 'Электрическая станция',
-                        type: 'electric_substaion'
-                    }
-                },
-                {
-                    data: {
-                        id: 'mini_electric_substaion_0',
-                        label: 'Электрическая подстанция',
-                        type: 'mini_electric_substaion'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_0',
-                        label: '',
-                        type: 'stick'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_1',
-                        label: '',
-                        type: 'stick'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_2',
-                        label: '',
-                        type: 'stick'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_3',
-                        label: '',
-                        type: 'stick'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_4',
-                        label: '',
-                        type: 'stick'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_5',
-                        label: '',
-                        type: 'stick'
-                    }
-                }
-            ],
-
-            edges: [
-                // { data: { id: 'diesel_power_electric_substaion', weight: 1, color: '#74E883',  source: 'diesel_power', target: 'electric_substaion' } },
-                // { data: { id: 'sun_power_electric_substaion', weight: 2, color: '#74E883',  source: 'sun_power', target: 'electric_substaion' } },
-                // { data: { id: 'wind_power_electric_substaion', weight: 3, color: '#74E883',  source: 'wind_power', target: 'electric_substaion' } },
-                // { data: { id: 'electric_substaion_factory', weight: 4, color: '#E8747C',  source: 'electric_substaion', target: 'factory' } },
-                // { data: { id: 'electric_substaion_district', weight: 5, color: '#E8747C',  source: 'electric_substaion', target: 'district' } },
-                // { data: { id: 'electric_substaion_mini_electric_substaion', weight: 6, color: '#6FB1FC',  source: 'electric_substaion', target: 'mini_electric_substaion' } },
-                // { data: { id: 'mini_electric_substaion_hospital', weight: 7, color: '#E8747C',  source: 'mini_electric_substaion', target: 'hospital' } }
-                {
-                    data: {
-                        id: 'diesel_power_0_stick_0',
-                        weight: 126,
-                        color: '#74E883',
-                        source: 'diesel_power_0',
-                        target: 'stick_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'diesel_power_1_stick_0',
-                        weight: 135,
-                        color: '#74E883',
-                        source: 'diesel_power_1',
-                        target: 'stick_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'diesel_power_2_stick_0',
-                        weight: 144,
-                        color: '#74E883',
-                        source: 'diesel_power_2',
-                        target: 'stick_0'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'accumulate_0_stick_3',
-                        weight: 27,
-                        color: '#74E883',
-                        source: 'accumulate_0',
-                        target: 'stick_3'
-                    }
-                },
-                {
-                    data: {
-                        id: 'accumulate_1_stick_3',
-                        weight: 36,
-                        color: '#74E883',
-                        source: 'accumulate_1',
-                        target: 'stick_3'
-                    }
-                },
-                {
-                    data: {
-                        id: 'accumulate_2_stick_3',
-                        weight: 45,
-                        color: '#74E883',
-                        source: 'accumulate_2',
-                        target: 'stick_3'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'stick_0_stick_5',
-                        weight: 45,
-                        color: '#74E883',
-                        source: 'stick_0',
-                        target: 'stick_5'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_3_stick_5',
-                        weight: 46,
-                        color: '#74E883',
-                        source: 'stick_3',
-                        target: 'stick_5'
-                    }
-                },
-
-
-                {
-                    data: {
-                        id: 'wind_power_0_stick_4',
-                        weight: 151,
-                        color: '#74E883',
-                        source: 'wind_power_0',
-                        target: 'stick_4'
-                    }
-                },
-                {
-                    data: {
-                        id: 'sun_power_0_stick_4',
-                        weight: 160,
-                        color: '#74E883',
-                        source: 'sun_power_0',
-                        target: 'stick_4'
-                    }
-                },
-
-                // { data: { id: 'stick_0_electric_substaion_0', weight: 188, color: '#74E883',  source: 'stick_0', target: 'electric_substaion_0' } },
-                {
-                    data: {
-                        id: 'stick_1_electric_substaion_0',
-                        weight: 10,
-                        color: '#E8747C',
-                        source: 'stick_1',
-                        target: 'electric_substaion_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_2_electric_substaion_0',
-                        weight: 11,
-                        color: '#E8747C',
-                        source: 'stick_2',
-                        target: 'electric_substaion_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_4_electric_substaion_0',
-                        weight: 12,
-                        color: '#74E883',
-                        source: 'stick_4',
-                        target: 'electric_substaion_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_5_electric_substaion_0',
-                        weight: 13,
-                        color: '#74E883',
-                        source: 'stick_5',
-                        target: 'electric_substaion_0'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'stick_1_district_0',
-                        weight: 198,
-                        color: '#E8747C',
-                        source: 'stick_1',
-                        target: 'district_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_1_district_1',
-                        weight: 193,
-                        color: '#E8747C',
-                        source: 'stick_1',
-                        target: 'district_1'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_1_district_2',
-                        weight: 194,
-                        color: '#E8747C',
-                        source: 'stick_1',
-                        target: 'district_2'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_2_district_3',
-                        weight: 195,
-                        color: '#E8747C',
-                        source: 'stick_2',
-                        target: 'district_3'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_2_district_4',
-                        weight: 196,
-                        color: '#E8747C',
-                        source: 'stick_2',
-                        target: 'district_4'
-                    }
-                },
-                {
-                    data: {
-                        id: 'stick_2_district_5',
-                        weight: 197,
-                        color: '#E8747C',
-                        source: 'stick_2',
-                        target: 'district_5'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'electric_substaion_0_hospital_0',
-                        weight: 165,
-                        color: '#E8747C',
-                        source: 'electric_substaion_0',
-                        target: 'hospital_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'electric_substaion_0_hospital_1',
-                        weight: 166,
-                        color: '#E8747C',
-                        source: 'electric_substaion_0',
-                        target: 'hospital_1'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'electric_substaion_0_mini_electric_substaion_0',
-                        weight: 170,
-                        color: '#6FB1FC',
-                        source: 'electric_substaion_0',
-                        target: 'mini_electric_substaion_0'
-                    }
-                },
-
-                {
-                    data: {
-                        id: 'mini_electric_substaion_0_factory_0',
-                        weight: 172,
-                        color: '#E8747C',
-                        source: 'mini_electric_substaion_0',
-                        target: 'factory_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'mini_electric_substaion_0_factory_1',
-                        weight: 173,
-                        color: '#E8747C',
-                        source: 'mini_electric_substaion_0',
-                        target: 'factory_1'
-                    }
-                },
-                {
-                    data: {
-                        id: 'mini_electric_substaion_0_hospital_0',
-                        weight: 174,
-                        color: '#E8747C',
-                        source: 'mini_electric_substaion_0',
-                        target: 'hospital_0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'mini_electric_substaion_0_hospital_1',
-                        weight: 175,
-                        color: '#E8747C',
-                        source: 'mini_electric_substaion_0',
-                        target: 'hospital_1'
-                    }
-                }
-            ],
-        }
-
-        // elements: {
-        //   //selectable: false,
-        //   grabbable: false,
-    }); // cytoscape
-
-
+    //console.log("Test graph: "+ JSON.stringify(cy.json()));
 
     var selectedNodeHandler = function(evt) {
         //console.log(evt.data); // 'bar'
@@ -714,8 +277,7 @@ $(function() {
         console.log('cy=', cy);
         cy.layout({
             name: 'dagre'
-            // name: 'random'
         });
     });
 
-}); // ready
+// });
