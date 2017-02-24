@@ -1,3 +1,9 @@
+//---------------------------------------------------
+// var refreshIntervalId = setInterval(fname, 10000);
+// /* later */
+// clearInterval(refreshIntervalId);
+//---------------------------------------------------
+
 var graphData;
 
 setInterval('testTest()',10000);
