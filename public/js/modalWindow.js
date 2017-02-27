@@ -7,6 +7,9 @@ var game_speed    = document.getElementById("input_speed");
 
 //----Глобальные переменные и все такое----
 var cs_url        = "http://82.117.171.124:9099/"; // Адресс сервера
+var gamerTimer    = 0; //Таймер для таймера
+var gamerCount    = 0; //Счетчик для таймера
+var gamerClock    = {"day":0,"hour":0,"minute":0}; 
 var table_model;  //Данные описывающие все модели
 var game_model;   //Данные описывающие игровую сессию
 var object_model; //Данные описывающие объекты и их настройки
@@ -101,6 +104,7 @@ $('#satrtStop').change(function() {
   if($(this).prop('checked')){
     saveData("satrtGame",JSON.stringify(game));
     startTimer();
+    realTimer();
     console.log(game.game_state);
   } else {
     saveData("stopGame",JSON.stringify(game));
@@ -110,14 +114,53 @@ $('#satrtStop').change(function() {
 });
 //-----------------------------------------
 
+//----Часы тикают, а я херню написал-------
+function enableTimerGm(gameState,time) {
+    if(gameState){
+        changeTimerLabel();
+        gamerTimer = setInterval('realTimer()',time);
+    } else {
+        clearInterval(gamerTimer);
+        gamerClock.minute = 0;
+        gamerClock.hour   = 0;
+        gamerClock.day    = 0;
+    }
+}
+
+function realTimer() {
+  gamerClock.minute+=1;
+  if(gamerClock.minute == 60){
+    gamerClock.hour+=1;
+    gamerClock.minute = 0;
+  }
+  if(gamerClock.hour==24){
+      gamerClock.day+=1;
+      gamerClock.hour = 0;
+  }
+  if(gamerClock.day==99){
+        gamerClock.minute = 0;
+        gamerClock.hour   = 0;
+        gamerClock.day    = 0;
+  }
+  changeTimerLabel();
+}
+
+function changeTimerLabel() {
+  var labelText = "День: "+gamerClock.day+";"+" Час: "+gamerClock.hour+";"+" Минута: "+gamerClock.minute+".";
+  document.getElementById('satrtStopLabel').innerHTML=labelText;
+}
+//-----------------------------------------
+
 //----обновление таймера игры--------------
 function startTimer() {
   enableTimerCh(true,game_model.gameSpeed);
   enableTimerGp(true,game_model.gameSpeed);
+  enableTimerGm(true,game_model.gameSpeed);
 }
 function stopTimer() {
   enableTimerCh(false,game_model.gameSpeed);
   enableTimerGp(false,game_model.gameSpeed);
+  enableTimerGm(false,game_model.gameSpeed);
 }
 //-----------------------------------------
 
