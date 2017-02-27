@@ -91,10 +91,12 @@ $('#satrtStop').change(function() {
 
 //----обновление таймера игры--------------
 function startTimer() {
-  enableTimer(true,game_model.gameSpeed);
+  enableTimerCh(true,game_model.gameSpeed);
+  enableTimerGp(true,game_model.gameSpeed);
 }
 function stopTimer() {
-  enableTimer(false,game_model.gameSpeed);
+  enableTimerCh(false,game_model.gameSpeed);
+  enableTimerGp(false,game_model.gameSpeed);
 }
 //-----------------------------------------
 

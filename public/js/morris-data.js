@@ -36,9 +36,9 @@ function updateChart() {
 //-----------------------------------------
 
 //----обновление данных по таймеру---------
-function enableTimer(gameState,time) {
+function enableTimerCh(gameState,time) {
     if(gameState){
-        chartTimer = setInterval(updateChart,time);
+        chartTimer = setInterval('updateChart()',time);
     } else {
         clearInterval(chartTimer);
     }

@@ -1,20 +1,27 @@
-//---------------------------------------------------
-// var refreshIntervalId = setInterval(fname, 10000);
-// /* later */
-// clearInterval(refreshIntervalId);
-//---------------------------------------------------
+//----Глобальные переменные и все такое---
+var graphData; //данные для графа
+var graphTimer = 0; //Таймер
+loadData("testGraphData",loadGr); //для теста
+//-----------------------------------------
 
-var graphData;
-
-setInterval('testTest()',10000);
-
-function testTest() {
-    console.log("asdadsasdasd");
+//----обновление данных--------------------
+function updateGraph() {
     loadData("testGraphData",loadGr);
 }
+//-----------------------------------------
 
-function loadGr(data) {
-    
+//----обновление данных по таймеру---------
+function enableTimerGp(gameState,time) {
+    if(gameState){
+        graphTimer = setInterval('updateGraph()',time);
+    } else {
+        clearInterval(graphTimer);
+    }
+}
+//-----------------------------------------
+
+//----загрузка данных----------------------
+function loadGr(data) {   
     graphData = data;
     cytoscape({
     container: document.getElementById('cy'),
@@ -92,10 +99,9 @@ function loadGr(data) {
     elements: graphData
 });
 };
+//-----------------------------------------
 
-loadData("testGraphData",loadGr);
-
-
+//------НЕПОЯНТНАЯ ХЕРНЯ ГРАФА-----
 // $(function() {
 
     var win = $(window);
@@ -287,3 +293,5 @@ loadData("testGraphData",loadGr);
     });
 
 // });
+//-----------------------------------------
+
