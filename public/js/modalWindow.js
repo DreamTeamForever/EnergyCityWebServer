@@ -15,7 +15,28 @@ var id_modal = ["FUPUZACY", "YWGQZWKS", "OONFKJAP", "ODWTMDBY",
                 "CWWAWXCC", "NKIXIFEX", "ADLDXAIY", "PWOQPTJU", 
                 "QUCLMOBF", "HTRRGVVP", "SCTZRYPP", "PEBYPPPI", 
                 "BETIBSFU", "CEHPZNNF", "JACGEIKD", "WKYDPBKW"];
-var modal_type = ["sol_model", "wind_model", "consumption", "supplier", "station"];
+var modal_type =  [
+                    {
+                    "modelName" : "sol_model",
+                    "modelName_ru" : "Модель солнца"
+                    },
+                    {
+                    "modelName" : "wind_model",
+                    "modelName_ru" : "Модель ветра"
+                    },
+                    {
+                    "modelName" : "consumption",
+                    "modelName_ru" : "Модель потребителя"
+                    },
+                    {
+                    "modelName" : "supplier",
+                    "modelName_ru" : "Модель поставщика"
+                    },
+                    {
+                    "modelName" : "station",
+                    "modelName_ru" : "Модель станции"
+                    }
+                  ];
 var game = { game_state: false };
 //-----------------------------------------
 
@@ -134,6 +155,7 @@ function updateSelectModel(data) {
   for (var i = 0; i < data.length; i++) {
     $('#select_model').append($("<option></option>").attr("value",data[i].model_name).text(data[i].model_name));
   }
+  selectModelType();
 }
 //-----------------------------------------
 
@@ -201,6 +223,24 @@ function deletTableModel() {
 }
 //-----------------------------------------
 
+//----обновление выбора типа модели--------
+function selectModelType() {
+  $("#select_model_type option").remove();
+  for (var i = 0; i < modal_type.length; i++) {
+    $('#select_model_type').append($("<option></option>").attr("value",modal_type[i].modelName_ru).text(modal_type[i].modelName_ru));
+  }
+}
+
+function getModelType() {
+  var name = $("#select_model_type").val();
+  for (var i = 0; i < modal_type.length; i++) {
+    if(name == modal_type[i].modelName_ru){
+      return modal_type[i].modelName;
+    }
+  }
+}
+//-----------------------------------------
+
 //----Создание и редактирование таблицы моделей--------
 function createTableModel() {
   var new_name = $("#create_model").val();
@@ -250,7 +290,7 @@ function addModelObject(newObject) {
   };
   model_object.model_id = newObject;
   model_object.model_name = newObject;
-  model_object.model_type = "vse_huina"
+  model_object.model_type = getModelType();
   model_object.data = getTableData($("#table_current_model  > tbody"));
   table_model.push(model_object);
 }
