@@ -15,6 +15,8 @@ var id_modal = ["FUPUZACY", "YWGQZWKS", "OONFKJAP", "ODWTMDBY",
                 "CWWAWXCC", "NKIXIFEX", "ADLDXAIY", "PWOQPTJU", 
                 "QUCLMOBF", "HTRRGVVP", "SCTZRYPP", "PEBYPPPI", 
                 "BETIBSFU", "CEHPZNNF", "JACGEIKD", "WKYDPBKW"];
+var modal_type = ["sol_model", "wind_model", "consumption", "supplier", "station"];
+var game = { game_state: false };
 //-----------------------------------------
 
 //----Отработка ф-ци по завршению загрузки страницы----
@@ -74,23 +76,40 @@ function saveData(url,data) {
 
 //----Начало и конец игры------------------
 $('#satrtStop').change(function() {
-  var game = {
-    game_state: ""
-  };
   game.game_state = $(this).prop('checked')
   if($(this).prop('checked')){
     saveData("satrtGame",JSON.stringify(game));
-    //вырубить все кнопки
+    startTimer();
     console.log(game.game_state);
   } else {
     saveData("stopGame",JSON.stringify(game));
-    //врубить все кнопки
+    stopTimer();
     console.log(game.game_state);
   }
 });
 //-----------------------------------------
 
 //----обновление таймера игры--------------
+function startTimer() {
+  enableTimer(true,game_model.gameSpeed);
+}
+function stopTimer() {
+  enableTimer(false,game_model.gameSpeed);
+}
+//-----------------------------------------
+
+//----блокировка интерфейса----------------
+function blokControl(isStart) {
+  if(isStart){
+    $("#inputSolModel").attr("disabled","disabled");
+    $("#inputWindModel").attr("disabled","disabled");
+    $("#inputSpeed").attr("disabled","disabled");
+  } else {
+    $("#inputSolModel").removeAttr("disabled");
+    $("#inputWindModel").removeAttr("disabled");
+    $("#inputSpeed").removeAttr("disabled");
+  }
+}
 //-----------------------------------------
 
 //----НАСТРОЙКИ ТАБЛИЦ МОДЕЛЕЙ-------------
@@ -289,6 +308,7 @@ function updateFormSettings(data) {
   $("#inputSolModel").val(data.sunModel);
   $("#inputWindModel").val(data.windModel);
   $("#inputSpeed").val(data.gameSpeed);
+  blokControl(game.game_state);
 }
 //-----------------------------------------
 
@@ -331,7 +351,7 @@ function discardChangesSettings() {
 function allModalBS(){
   for (var i = 0; i < id_modal.length; i++) {
     $("#"+id_modal[i]).on('show.bs.modal', function() {
-      updateCustomSelect(this.id,object_model);
+      updateCustomSelect(this.id,getCurrentModel(this.id));
     });
     saveForBtn(id_modal[i]);
     discardForBtn(id_modal[i]);
@@ -351,14 +371,13 @@ function lodaObject(data){
 function updateCustomSelect(formId,data) {
   $("#"+formId).find(".form-control").children("option").remove();
   for (var i = 0; i < table_model.length; i++) {
-    $("#"+formId).find(".form-control").append($("<option></option>").attr("value",table_model[i].model_name).text(table_model[i].model_name));
-  }
-  for (var i = 0; i < data.length; i++) {
-    if(data[i].object_id == formId){
-      $("#"+formId).find(".form-control").val(data[i].table_model);
-      changeCustomToggle(formId,data[i].active);
+    if(table_model[i].model_type == data.object_type) {
+      $("#"+formId).find(".form-control").append($("<option></option>").attr("value",table_model[i].model_name).text(table_model[i].model_name));
     }
   }
+  $("#"+formId).find(".form-control").val(data.table_model);
+  changeCustomToggle(formId,data.active);
+  blokSelect(formId,game.game_state);
 }
 //-----------------------------------------
 
@@ -386,6 +405,26 @@ function discardForBtn(formId) {
   $("#"+formId).find(".modal-footer").find(".btn.btn-default").click(function(){
     updateCustomSelect(formId,object_model);
   });
+}
+//-----------------------------------------
+
+//----блокировка выбора модели---------
+function blokSelect(formId,isStart) {
+  if(isStart){
+    $("#"+formId).find(".form-control").attr("disabled","disabled");
+  } else {
+    $("#"+formId).find(".form-control").removeAttr("disabled");
+  }
+}
+//-----------------------------------------
+
+//----Поиск модели по id---------
+function getCurrentModel(formId) {
+  for (var i = 0; i < object_model.length; i++) {
+    if(object_model[i].object_id == formId){
+      return object_model[i];
+    } 
+  }
 }
 //-----------------------------------------
 //-----------------------------------------
