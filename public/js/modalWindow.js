@@ -10,6 +10,11 @@ var cs_url        = "http://82.117.171.124:9099/"; // Адресс сервер�
 var table_model;  //Данные описывающие все модели
 var game_model;   //Данные описывающие игровую сессию
 var object_model; //Данные описывающие объекты и их настройки
+var id_modal = ["FUPUZACY", "YWGQZWKS", "OONFKJAP", "ODWTMDBY", 
+                "OPFLGRDB", "WXKEARFV", "CQPQIOBW", "BCFUYTKE", 
+                "CWWAWXCC", "NKIXIFEX", "ADLDXAIY", "PWOQPTJU", 
+                "QUCLMOBF", "HTRRGVVP", "SCTZRYPP", "PEBYPPPI", 
+                "BETIBSFU", "CEHPZNNF", "JACGEIKD", "WKYDPBKW"];
 //-----------------------------------------
 
 //----Отработка ф-ци по завршению загрузки страницы----
@@ -17,6 +22,7 @@ $(document).ready(function() {
   loadData("modelCollections",loadModel);
   loadData("gameSettings",lodaGameSettings);
   loadData("objectCollections",lodaObject); 
+  allModalBS();
 });
 //-----------------------------------------
 
@@ -320,151 +326,17 @@ function discardChangesSettings() {
 //-----------------------------------------
 //-----------------------------------------
 
-
-
-
 //----ЭТО МОЖНО СДЕЛАТЬ ПОДРУГОМУ--------
 //----Обновить окно--------
-$('#FUPUZACY').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("FUPUZACY");
-discardForBtn("FUPUZACY");
-//-----------------------------------------
-//----Обновить окно--------
-$('#YWGQZWKS').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("YWGQZWKS");
-discardForBtn("YWGQZWKS");
-//-----------------------------------------
-//----Обновить окно--------
-$('#OONFKJAP').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("OONFKJAP");
-discardForBtn("OONFKJAP");
-//-----------------------------------------
-//----Обновить окно--------
-$('#ODWTMDBY').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("ODWTMDBY");
-discardForBtn("ODWTMDBY");
-//-----------------------------------------
-//----Обновить окно--------
-$('#OPFLGRDB').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("OPFLGRDB");
-discardForBtn("OPFLGRDB");
-//-----------------------------------------
-//----Обновить окно--------
-$('#WXKEARFV').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("WXKEARFV");
-discardForBtn("WXKEARFV");
-//-----------------------------------------
-//----Обновить окно--------
-$('#CQPQIOBW').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("CQPQIOBW");
-discardForBtn("CQPQIOBW");
-//-----------------------------------------
-//----Обновить окно--------
-$('#BCFUYTKE').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("BCFUYTKE");
-discardForBtn("BCFUYTKE");
-//-----------------------------------------
-//----Обновить окно--------
-$('#CWWAWXCC').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("CWWAWXCC");
-discardForBtn("CWWAWXCC");
-//-----------------------------------------
-//----Обновить окно--------
-$('#NKIXIFEX').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("NKIXIFEX");
-discardForBtn("NKIXIFEX");
-//-----------------------------------------
-//----Обновить окно--------
-$('#ADLDXAIY').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("ADLDXAIY");
-discardForBtn("ADLDXAIY");
-//-----------------------------------------
-//----Обновить окно--------
-$('#PWOQPTJU').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("PWOQPTJU");
-discardForBtn("PWOQPTJU");
-//-----------------------------------------
-//----Обновить окно--------
-$('#QUCLMOBF').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("QUCLMOBF");
-discardForBtn("QUCLMOBF");
-//-----------------------------------------
-//----Обновить окно--------
-$('#HTRRGVVP').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("HTRRGVVP");
-discardForBtn("HTRRGVVP");
-//-----------------------------------------
-//----Обновить окно--------
-$('#SCTZRYPP').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("SCTZRYPP");
-discardForBtn("SCTZRYPP");
-//-----------------------------------------
-//----Обновить окно--------
-$('#PEBYPPPI').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("PEBYPPPI");
-discardForBtn("PEBYPPPI");
-//-----------------------------------------
-//----Обновить окно--------
-$('#BETIBSFU').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("BETIBSFU");
-discardForBtn("BETIBSFU");
-//-----------------------------------------
-//----Обновить окно--------
-$('#CEHPZNNF').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("CEHPZNNF");
-discardForBtn("CEHPZNNF");
-//-----------------------------------------
-//----Обновить окно--------
-$('#JACGEIKD').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("JACGEIKD");
-discardForBtn("JACGEIKD");
-//-----------------------------------------
-//----Обновить окно--------
-$('#WKYDPBKW').on('show.bs.modal', function() {
-  updateCustomSelect(this.id,object_model);
-});
-saveForBtn("WKYDPBKW");
-discardForBtn("WKYDPBKW");
-
-//-----------------------------------------
+function allModalBS(){
+  for (var i = 0; i < id_modal.length; i++) {
+    $("#"+id_modal[i]).on('show.bs.modal', function() {
+      updateCustomSelect(this.id,object_model);
+    });
+    saveForBtn(id_modal[i]);
+    discardForBtn(id_modal[i]);
+  }
+}
 //-----------------------------------------
 
 
