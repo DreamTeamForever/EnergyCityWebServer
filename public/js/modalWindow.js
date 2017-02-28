@@ -104,7 +104,6 @@ $('#satrtStop').change(function() {
   if($(this).prop('checked')){
     saveData("satrtGame",JSON.stringify(game));
     startTimer();
-    realTimer();
     console.log(game.game_state);
   } else {
     saveData("stopGame",JSON.stringify(game));
@@ -195,50 +194,60 @@ $('#model_settings').on('show.bs.modal', function() {
 //----Обновление селектора-----------
 function updateSelectModel(data) {
   $("#select_model option").remove();
+  $("#select_model_type_с option").remove();
   for (var i = 0; i < data.length; i++) {
     $('#select_model').append($("<option></option>").attr("value",data[i].model_name).text(data[i].model_name));
+    $('#select_model_type_с').append($("<option></option>").attr("value",data[i].model_type_ru).text(data[i].model_type_ru));
   }
   selectModelType();
 }
 //-----------------------------------------
 
-//----Отображение таблицы при выборе модели--------
+//----Отображение таблицы при выборе модели--------l
 function selectModel() {
   changeStateButtom(true,"btn_edit_model");
   changeStateButtom(true,"btn_delet_model");
   $("#table_model_body tr").remove(); 
   var model_n = document.getElementById("select_model").value;
+  var model_t;
   console.log("Select item: "+model_n);
   for(var i = 0; i < table_model.length; i++) {
     if(model_n==table_model[i].model_name){
+      model_t = table_model[i].model_type_ru;
       for(var j = 0; j < table_model[i].data.length; j++ ) {
         var table_c   = document.getElementById('table_current_model').getElementsByTagName('tbody')[0];
         var new_row   = table_c.insertRow(table_c.rows.length);
         new_row.appendChild(document.createElement("TH")).innerText = table_model[i].data[j].id ;
         new_row.insertCell(1).innerText = table_model[i].data[j].value;
+        new_row.insertCell(2).innerText = table_model[i].data[j].value_s;
       }
     }
   }
+  $("#select_model_type_с").val(model_t);
 }
 //-----------------------------------------
 
-//----Редактирование модели по кнопке--------
+//----Редактирование модели по кнопке------
 function editTable() {
   changeStateButtom(false,"btn_edit_model");
   $(function() {
     $('td').click(function(e) { 
       var t = e.target || e.srcElement; 
-      var elm_name = t.tagName.toLowerCase(); 
+      var elm_name = t.tagName.toLowerCase();
+      var countId = $(this).parent().children('th').text();
+      var countIndex = $(this).index();
       if(elm_name == 'input') {
         return false;
       }
+      console.log($(this).index());
       var val = $(this).html(); 
       var code = '<input type="text" id="edit" value="'+val+'" />'; 
       $(this).empty().append(code); 
       $('#edit').focus(); 
       $('#edit').blur(function() { 
         var val = $(this).val(); 
-        $(this).parent().empty().html(val); 
+        $(this).parent().empty().html(val);
+        editCurrentTable(countId,val,countIndex);
       }); 
     }); 
   });
@@ -247,6 +256,31 @@ function editTable() {
       $('#edit').blur();
     } 
   });
+}
+//-----------------------------------------
+
+//----Обновление данных вмодели------------
+function editCurrentTable(id,val,pos) {
+  for (var i = 0; i < table_model.length; i++) {
+    if(table_model[i].model_name==$("#select_model").val()){
+      for (var j = 0; j < table_model[i].data.length; j++) {
+        if(table_model[i].data[j].id==id){
+          if(pos == 1){
+            table_model[i].data[j].value = val; 
+          } else {
+            table_model[i].data[j].value_s = val;
+          }
+          break;
+        }
+      }
+    }
+  }
+}
+//-----------------------------------------
+
+//----Текущая модель------------
+function currentType() {
+
 }
 //-----------------------------------------
 
@@ -329,10 +363,12 @@ function addModelObject(newObject) {
     model_id: "",
     model_name: "",
     model_type: "",
+    model_type_ru: "",
     data: []
   };
   model_object.model_id = newObject;
   model_object.model_name = newObject;
+  model_object.model_type_ru = $("#select_model_type").val();
   model_object.model_type = getModelType();
   model_object.data = getTableData($("#table_current_model  > tbody"));
   table_model.push(model_object);
@@ -343,14 +379,19 @@ function getTableData(table) {
     table.find('tr').each(function (rowIndex, r) {
         var data_model = {
           id: "",
-          value: ""
+          value: "",
+          value_s: ""
         };
         $(this).find('th,td').each(function (colIndlex, c) {
           if(colIndlex == 0){
             data_model.id = c.textContent; 
-          } else {
+          } 
+          if(colIndlex == 1){
             data_model.value = c.textContent; 
-          }           
+          }
+          if(colIndlex == 2){
+            data_model.value_s = c.textContent; 
+          }                      
         });
         data.push(data_model);
     });
