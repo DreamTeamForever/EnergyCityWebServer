@@ -99,10 +99,10 @@ function saveData(url,data) {
 //-----------------------------------------
 
 //----Начало и конец игры------------------
-$('#satrtStop').change(function() {
+$('#startStop').change(function() {
   game.game_state = $(this).prop('checked')
   if($(this).prop('checked')){
-    saveData("satrtGame",JSON.stringify(game));
+    saveData("startGame",JSON.stringify(game));
     startTimer();
     console.log(game.game_state);
   } else {
@@ -146,7 +146,7 @@ function realTimer() {
 
 function changeTimerLabel() {
   var labelText = "День: "+gamerClock.day+";"+" Час: "+gamerClock.hour+";"+" Минута: "+gamerClock.minute+".";
-  document.getElementById('satrtStopLabel').innerHTML=labelText;
+  document.getElementById('startStopLabel').innerHTML=labelText;
 }
 //-----------------------------------------
 
@@ -276,13 +276,7 @@ function editCurrentTable(id,val,pos) {
     }
   }
 }
-//-----------------------------------------
-
-//----Текущая модель------------
-function currentType() {
-
-}
-//-----------------------------------------
+//-----------------------------------------l
 
 //----Удаление модели по кнопке--------
 function deletTableModel() {
