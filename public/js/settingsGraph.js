@@ -9,7 +9,7 @@ function getSettingsGraph() {
 	minZoom: 0.5,
 	maxZoom: 10,
 	wheelSensitivity: 0.1,
-	layout: { name: 'dagre'},
+	// layout: { name: 'dagre'},
 	style: [{
 	            selector: 'node',
 	            style: { 'width': 60, 'height': 60, 'content': 'data(label)', 'text-valign': 'top', 'color': '#1ab394', 'background-fit': 'cover', 'border-color': '#000', 'border-width': 5, 'border-opacity': 0.5 }
@@ -83,10 +83,6 @@ function getSettingsGraph() {
 
 function getDataGraph() {
 	var collD = [];
-	// var dataG = {
-	// 		group: "",
-	// 		data:""
-	// 	};
 	for(var i = 0; i< graphData.nodes.length;i++){
 		var dataG = {
 			group: "",

@@ -1,6 +1,7 @@
 //----Глобальные переменные и все такое----
 var dataChart; //Данные для построения графика
 var chartTimer = 0; //Таймер
+var idObject = "1";
 loadData("dataChart",loadChart); //для теста
 //-----------------------------------------
 
@@ -24,7 +25,7 @@ var chartMoris = Morris.Area({
 
 //----загрузка данных----------------------
 function loadChart(data) {
-    dataChart = data[0].object_data;
+    dataChart = findObject(data);
     chartMoris.setData(dataChart);
 }
 //-----------------------------------------
@@ -42,5 +43,21 @@ function enableTimerCh(gameState,time) {
     } else {
         clearInterval(chartTimer);
     }
+}
+
+function setIdObjectChart(id){
+    idObject = id;
+    updateChart();
+}
+
+function findObject(data) {
+    var temp = data[0].object_data;
+    for (var i = 0; i < data.length; i++) {
+        if(data[i]==idObject) {
+            temp = data[i].object_data;
+            break;
+        }
+    }
+    return temp;
 }
 //-----------------------------------------
