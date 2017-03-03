@@ -1,6 +1,8 @@
 //----Глобальные переменные и все такое---
 var graphData; //данные для графа
+//-----------------------------------------
 
+//----Первоначальная настройка графа-------
 function getSettingsGraph() {
 	var settignsGraph = {
 	container: document.getElementById('cy'),
@@ -8,7 +10,6 @@ function getSettingsGraph() {
 	minZoom: 0.5,
 	maxZoom: 10,
 	wheelSensitivity: 0.1,
-	// layout: { name: 'dagre'},
 	style: [{
 	            selector: 'node',
 	            style: { 'width': 60, 'height': 60, 'content': 'data(label)', 'text-valign': 'top', 'color': '#1ab394', 'background-fit': 'cover', 'border-color': '#000', 'border-width': 5, 'border-opacity': 0.5 }
@@ -22,10 +23,10 @@ function getSettingsGraph() {
 	            style: { 'background-color': 'yellow', 'line-color': 'yellow', 'target-arrow-color': 'black', 'source-arrow-color': 'black' }
 	        },
 	        {
-	            selector: 'edge:selected',
-	            style: { 'width': 20 }
+	            selector: 'node:selected',
+	            style: { 'width': 80, 'height': 80,'border-color':'green'}
 	        },
-
+	        
 	        {
 	            selector: 'node[type = "stick"]',
 	            style: { 'width': 6, 'height': 6 }
@@ -75,7 +76,9 @@ function getSettingsGraph() {
 	};
 	return settignsGraph;
 }
+//-----------------------------------------
 
+//----Подготовка новых данных для графа----
 function getDataGraph() {
 	var collD = [];
 	for(var i = 0; i< graphData.nodes.length;i++){
