@@ -6,7 +6,7 @@ var game_speed    = document.getElementById("input_speed");
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-var cs_url        = "http://82.117.171.124:9099/"; // Адресс сервера
+var cs_url        = "http://localhost:9099/"; // Адресс сервера
 var gamerTimer    = 0; //Таймер для таймера
 var gamerCount    = 0; //Счетчик для таймера
 var gamerClock    = {"day":0,"hour":0,"minute":0}; 
