@@ -67,10 +67,6 @@ function getSettingsGraph() {
 	            style: { 'background-image': 'image/electric.jpg' }
 	        },
 	        {
-	            selector: 'node[type = "stick"]',
-	            style: { 'background-image': 'image/stcik.png' }
-	        },
-	        {
 	            selector: '#electric_substaion',
 	            style: { 'background-image': 'image/electric.jpg' }
 	        }
