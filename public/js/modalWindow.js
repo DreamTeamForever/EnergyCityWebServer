@@ -6,18 +6,18 @@ var game_speed    = document.getElementById("input_speed");
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-var cs_url        = "http://localhost:9099/"; // Адресс сервера
+var cs_url        = "http://82.117.171.124:9099/"; // Адресс сервера
 var gamerTimer    = 0; //Таймер для таймера
 var gamerCount    = 0; //Счетчик для таймера
 var gamerClock    = {"day":0,"hour":0,"minute":0}; 
 var table_model;  //Данные описывающие все модели
 var game_model;   //Данные описывающие игровую сессию
 var object_model; //Данные описывающие объекты и их настройки
-var id_modal = ["FUPUZACY", "YWGQZWKS", "OONFKJAP", "ODWTMDBY", 
-                "OPFLGRDB", "WXKEARFV", "CQPQIOBW", "BCFUYTKE", 
-                "CWWAWXCC", "NKIXIFEX", "ADLDXAIY", "PWOQPTJU", 
-                "QUCLMOBF", "HTRRGVVP", "SCTZRYPP", "PEBYPPPI", 
-                "BETIBSFU", "CEHPZNNF", "JACGEIKD", "WKYDPBKW"];
+var id_modal = ["CH_001", "CH_002", "CU_001", "CU_002", 
+                "CU_003", "CU_004", "CU_00", "CU_006", 
+                "CF_001", "CF_002", "GRA_001", "GRA_002", 
+                "GRA_003", "GRD_001", "GRD_002", "GRD_003", 
+                "GW_001", "GS_001", "MS_001", "SS_001"];
 var modal_type =  [
                     {
                     "modelName" : "sol_model",
