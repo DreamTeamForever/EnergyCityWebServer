@@ -8,3 +8,39 @@
  */
 
 .arrow{float:right;line-height:1.42857}.glyphicon.arrow:before{content:"\e079"}.active>a>.glyphicon.arrow:before{content:"\e114"}.fa.arrow:before{content:"\f104"}.active>a>.fa.arrow:before{content:"\f107"}.plus-times{float:right}.fa.plus-times:before{content:"\f067"}.active>a>.fa.plus-times{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}.plus-minus{float:right}.fa.plus-minus:before{content:"\f067"}.active>a>.fa.plus-minus:before{content:"\f068"}
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: table-row;
+	font-weight: 25;
+	text-align: center;
+	font-size: 12px;
+	display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+#clockdiv > div{
+	padding: 4px;
+	border-radius: 2px;
+	/*background: #00BF96;*/
+	background: #ddd;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 2px;
+	border-radius: 2px;
+	background: #fff;
+	color: black;
+	/*background: #00816A;*/
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 2px;
+	font-size: 10px;
+	color: black;
+		display: inline-block;
+}
