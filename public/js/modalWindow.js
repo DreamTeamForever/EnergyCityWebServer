@@ -512,6 +512,7 @@ function updateCustomSelect(formId, data) {
         }
     }
     $("#" + formId).find(".form-control").val(data.table_model);
+    console.log(data.table_model);
     changeCustomToggle(formId, data.active);
     blokSelect(formId, game.game_state);
 }
@@ -539,7 +540,7 @@ function saveForBtn(formId) {
 //----Отменить настройки---------
 function discardForBtn(formId) {
     $("#" + formId).find(".modal-footer").find(".btn.btn-default").click(function() {
-        updateCustomSelect(formId, object_model);
+        updateCustomSelect(formId, getCurrentModel(formId));
     });
 }
 //-----------------------------------------
@@ -566,6 +567,7 @@ function getCurrentModel(formId) {
 
 //----Выпилить все настройки игры---------
 var rdTimer = 0;
+
 function reload(){
     loadData("modelCollections", loadModel);
     loadData("gameSettings", lodaGameSettings);
