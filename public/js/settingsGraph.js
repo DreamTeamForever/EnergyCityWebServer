@@ -26,7 +26,6 @@ function getSettingsGraph() {
 	            selector: 'node:selected',
 	            style: { 'width': 80, 'height': 80,'border-color':'green'}
 	        },
-	        
 	        {
 	            selector: 'node[type = "stick"]',
 	            style: { 'width': 6, 'height': 6 }

@@ -152,14 +152,18 @@ function changeTimerLabel() {
 
 //----обновление таймера игры--------------
 function startTimer() {
-  enableTimerCh(true,game_model.gameSpeed);
-  enableTimerGp(true,game_model.gameSpeed);
-  enableTimerGm(true,game_model.gameSpeed);
+  var val  = game_model.gameSpeed * 1000;
+  console.log("Game speed: "+val);
+  enableTimerCh(true,val);
+  enableTimerGp(true,val);
+  enableTimerGm(true,val);
 }
 function stopTimer() {
-  enableTimerCh(false,game_model.gameSpeed);
-  enableTimerGp(false,game_model.gameSpeed);
-  enableTimerGm(false,game_model.gameSpeed);
+  var val  = game_model.gameSpeed * 1000;
+  console.log("Game speed: "+val);
+  enableTimerCh(false,val);
+  enableTimerGp(false,val);
+  enableTimerGm(false,val);
 }
 //-----------------------------------------
 
@@ -240,12 +244,12 @@ function editTable() {
         return false;
       }
       console.log($(this).index());
-      var val = $(this).html(); 
-      var code = '<input type="text" id="edit" value="'+val+'" />'; 
+      var val = $(this).html();
+      var code = '<input type="number" min="0" max="100" id="edit" value="'+val+'" />'; 
       $(this).empty().append(code); 
       $('#edit').focus(); 
       $('#edit').blur(function() { 
-        var val = $(this).val(); 
+        var val = $(this).val();
         $(this).parent().empty().html(val);
         editCurrentTable(countId,val,countIndex);
       }); 
