@@ -257,7 +257,7 @@ function editTable() {
             }
             console.log($(this).index());
             var val = $(this).html();
-            var code = '<input type="number" min="0" max="100" id="edit" value="' + val + '" />';
+            var code = '<input type="number" id="edit" value="' + val + '" />';
             $(this).empty().append(code);
             $('#edit').focus();
             $('#edit').blur(function() {
