@@ -1,0 +1,162 @@
+[
+  {
+    "object_id": "CH_001",
+    "table_model": "Госпиталь",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CH_002",
+    "table_model": "Госпиталь",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CU_001",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": false,
+    "online": true
+  },
+  {
+    "object_id": "CU_002",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CU_003",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CU_004",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CU_005",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CU_006",
+    "table_model": "Микрорайон",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CF_001",
+    "table_model": "Фабрика",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "CF_002",
+    "table_model": "Фабрика",
+    "object_name": "hello",
+    "object_type": "consumption",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRA_001",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRA_002",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRA_003",
+    "table_model": "123",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRD_001",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRD_002",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GRD_003",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GW_001",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "GS_001",
+    "table_model": "Статичная модель",
+    "object_name": "hello",
+    "object_type": "supplier",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "MS_001",
+    "table_model": " ",
+    "object_name": "hello",
+    "object_type": "station",
+    "active": true,
+    "online": true
+  },
+  {
+    "object_id": "SS_001",
+    "table_model": " ",
+    "object_name": "hello",
+    "object_type": "station",
+    "active": true,
+    "online": true
+  }
+]
