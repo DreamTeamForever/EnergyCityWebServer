@@ -52,7 +52,7 @@ function setIdObjectChart(id){
 }
 
 function findObject(data) {
-    //var temp = data[0].object_data;
+    var temp = data[0].object_data;
     for (var i = 0; i < data.length; i++) {
         if(data[i].object_id ==idObject) {
             temp = data[i].object_data;

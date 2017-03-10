@@ -565,12 +565,21 @@ function getCurrentModel(formId) {
 //-----------------------------------------
 
 //----Выпилить все настройки игры---------
+var rdTimer = 0;
+function reload(){
+    loadData("modelCollections", loadModel);
+    loadData("gameSettings", lodaGameSettings);
+    loadData("objectCollections", lodaObject);
+    clearTimeout(rdTimer);
+} 
+
 $("#resetBTN").click(function() {
     var dat = {
         "reset": true
     };
     saveData("resetDefault", JSON.stringify(dat));
-});
+    rdTimer = setTimeout(reload, 1000);
 
+});
 //-----------------------------------------
 //-----------------------------------------
