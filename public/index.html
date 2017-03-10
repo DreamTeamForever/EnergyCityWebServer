@@ -71,6 +71,10 @@
                         <li>
                             <a href="#" data-toggle="modal" data-target="#model_settings"><i class="fa fa-calendar-o fa-fw"></i> Настройки моделей</a>
                         </li>
+                         <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#reset_default"><i class="fa fa-minus-circle fa-fw"></i> Восстановление настроек</a>
+                        </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
@@ -1054,6 +1058,28 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" id="btn_save_model" onclick="saveСhangesModel()" class="btn btn-success">Сохранить</button>
                             <button type="button" class="btn btn-default" onclick="discardChangesModel()">Отменить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="reset_default" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Восстановление настроек системы по умолчанию</h4>
+                </div>
+                <div class="modal-body">
+                   <p>ВНИМАНИЕ! При нажатии кнопки "Сбросить", все ранее созданные модели и настройки будут УДАЛЕНЫ, после чего удаленные данные невозможно будет восстановить!</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="resetBTN" type="submit" class="btn btn-success">Сбросить</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
                         </div>
                     </div>
                 </div>

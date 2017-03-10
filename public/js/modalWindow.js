@@ -551,4 +551,14 @@ function getCurrentModel(formId) {
   }
 }
 //-----------------------------------------
+
+//----Выпилить все настройки игры---------
+$("#resetBTN").click(function(){
+  var dat = {
+            "reset" : true
+          };
+  saveData("resetDefault",JSON.stringify(dat));
+});
+
+//-----------------------------------------
 //-----------------------------------------
