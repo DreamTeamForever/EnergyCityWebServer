@@ -57,8 +57,8 @@
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
                 <label class="checkbox-inline">
-                    <input id="startStop" type="checkbox" data-toggle="toggle" data-on="ВКЛ" data-off="ВЫКЛ" data-onstyle="success" data-offstyle="danger">
-                    <label id="startStopLabel">День: 0; Час: 0; Минута: 0.</label>
+                    <input id="startStop" class="smalltext" type="checkbox" data-toggle="toggle" data-on="ВКЛ" data-off="ВЫКЛ" data-onstyle="success" data-offstyle="danger">
+                    <!-- <label id="startStopLabel">День: 0; Час: 0; Минута: 0.</label> -->
                 </label>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -71,7 +71,7 @@
                         <li>
                             <a href="#" data-toggle="modal" data-target="#model_settings"><i class="fa fa-calendar-o fa-fw"></i> Настройки моделей</a>
                         </li>
-                         <li role="separator" class="divider"></li>
+                        <li role="separator" class="divider"></li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#reset_default"><i class="fa fa-minus-circle fa-fw"></i> Восстановление настроек</a>
                         </li>
@@ -91,16 +91,16 @@
                             <div id="clockdiv">
                                 <br>
                                 <div>
-                                    <span class="days">11</span>
-                                    <div class="smalltext">Days</div>
+                                    <span class="days">0</span>
+                                    <div class="smalltext">День</div>
                                 </div>
                                 <div>
-                                    <span class="hours">11</span>
-                                    <div class="smalltext">Hours</div>
+                                    <span class="hours">0</span>
+                                    <div class="smalltext">Час</div>
                                 </div>
                                 <div>
-                                    <span class="minutes">11</span>
-                                    <div class="smalltext">Minutes</div>
+                                    <span class="minutes">0</span>
+                                    <div class="smalltext">Минута</div>
                                 </div>
                             </div>
                             <br>
@@ -1060,7 +1060,7 @@
                     <h4 class="modal-title">Восстановление настроек системы по умолчанию</h4>
                 </div>
                 <div class="modal-body">
-                   <p>ВНИМАНИЕ! При нажатии кнопки "Сбросить", все ранее созданные модели и настройки будут УДАЛЕНЫ, после чего удаленные данные невозможно будет восстановить!</p>
+                    <p>ВНИМАНИЕ! При нажатии кнопки "Сбросить", все ранее созданные модели и настройки будут УДАЛЕНЫ, после чего удаленные данные невозможно будет восстановить!</p>
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
