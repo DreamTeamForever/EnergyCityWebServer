@@ -109,16 +109,24 @@ $('#startStop').change(function() {
     game.game_state = $(this).prop('checked')
     if ($(this).prop('checked')) {
         saveData("startGame", JSON.stringify(game));
-        startTimer();
-        console.log(game.game_state);
-        $('#clockdiv > div').css("background", '#5cb85c');
+        startGame();
     } else {
         saveData("stopGame", JSON.stringify(game));
-        stopTimer();
-        console.log(game.game_state);
-        $('#clockdiv > div').css("background", '#c9302c');
+        stopGame();
     }
 });
+
+function startGame() {
+    startTimer();
+    console.log(game.game_state);
+    $('#clockdiv > div').css("background", '#5cb85c');
+}
+
+function stopGame() {
+    stopTimer();
+    console.log(game.game_state);
+    $('#clockdiv > div').css("background", '#c9302c');
+}
 //-----------------------------------------
 
 //----Часы тикают, а я херню написал-------
@@ -158,6 +166,38 @@ function changeTimerLabel() {
     $('.days').text(gamerClock.day);
     $('.hours').text(gamerClock.hour);
     $('.minutes').text(gamerClock.minute);
+    saveClock();
+}
+
+function saveClock(){
+    eraseCookie("days");
+    eraseCookie("hours");
+    eraseCookie("minutes");
+    writeCookie("days",gamerClock.day,10);
+    writeCookie("hours",gamerClock.hour,10);
+    writeCookie("minutes",gamerClock.minute,10);
+}
+
+function readClock(){
+   gamerClock.day    = Number(readCookie("days"));
+   gamerClock.hour   = Number(readCookie("hours"));
+   gamerClock.minute = Number(readCookie("minutes"));
+}
+
+function loadState() {
+    var tem = readCookie("game");
+    if(tem){
+        // stopTimer();
+        readClock();
+        changeTimerLabel();
+        $('#startStop').bootstrapToggle('on');
+        // readClock();
+        
+        // startGame();
+    } else {
+        // stopTimer();
+        $('#startStop').bootstrapToggle('off');
+    }
 }
 //-----------------------------------------
 
@@ -168,6 +208,7 @@ function startTimer() {
     enableTimerCh(true, val);
     enableTimerGp(true, val);
     enableTimerGm(true, val);
+    writeCookie("game",true,10);
 }
 
 function stopTimer() {
@@ -176,6 +217,7 @@ function stopTimer() {
     enableTimerCh(false, val);
     enableTimerGp(false, val);
     enableTimerGm(false, val);
+    writeCookie("game",false,10);
 }
 //-----------------------------------------
 
@@ -431,6 +473,7 @@ function discardChangesModel() {
 //----Кэширование данных--------
 function lodaGameSettings(data) {
     game_model = data;
+    loadState();
 }
 //-----------------------------------------
 
@@ -587,3 +630,31 @@ $("#resetBTN").click(function() {
 });
 //-----------------------------------------
 //-----------------------------------------
+
+function writeCookie(name, value, days) {
+  var expires = "";
+  if(days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + date.toGMTString();
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+};
+
+function readCookie(name) {
+  var searchName = name + "=";
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var c = cookies[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(searchName) == 0)
+      return c.substring(searchName.length, c.length);
+  }
+  return null;
+};
+
+function eraseCookie(name) {
+  writeCookie(name, "", -1);
+};
