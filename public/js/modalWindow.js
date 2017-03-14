@@ -186,18 +186,22 @@ function readClock(){
 
 function loadState() {
     var tem = readCookie("game");
-    if(tem){
-        // stopTimer();
+    console.log(tem);
+    if(tem == "true"){
+        //stopTimer();
         readClock();
         changeTimerLabel();
         $('#startStop').bootstrapToggle('on');
         // readClock();
         
-        // startGame();
-    } else {
+         //startGame();
+    } 
+    //else {
+      // readClock();
+      // changeTimerLabel();
         // stopTimer();
-        $('#startStop').bootstrapToggle('off');
-    }
+        //$('#startStop').bootstrapToggle('off');
+    //}
 }
 //-----------------------------------------
 
@@ -208,7 +212,8 @@ function startTimer() {
     enableTimerCh(true, val);
     enableTimerGp(true, val);
     enableTimerGm(true, val);
-    writeCookie("game",true,10);
+    eraseCookie("game");
+    writeCookie("game","true",10);
 }
 
 function stopTimer() {
@@ -217,7 +222,8 @@ function stopTimer() {
     enableTimerCh(false, val);
     enableTimerGp(false, val);
     enableTimerGm(false, val);
-    writeCookie("game",false,10);
+    eraseCookie("game");
+    writeCookie("game","false",10);
 }
 //-----------------------------------------
 
