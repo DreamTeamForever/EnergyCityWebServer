@@ -215,6 +215,7 @@ function updateSelectModel(data) {
         $('#select_model').append($("<option></option>").attr("value", data[i].model_name).text(data[i].model_name));
         $('#select_model_type_с').append($("<option></option>").attr("value", data[i].model_type_ru).text(data[i].model_type_ru));
     }
+    $('#select_model').val(" ");
     selectModelType();
 }
 //-----------------------------------------
@@ -351,6 +352,7 @@ function initTable(n_m) {
         var new_row = table_c.insertRow(table_c.rows.length);
         new_row.appendChild(document.createElement("TH")).innerText = j;
         new_row.insertCell(1).innerText = 0;
+        new_row.insertCell(2).innerText = 0;
     }
     editTable();
 }
