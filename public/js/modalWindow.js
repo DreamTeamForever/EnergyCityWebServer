@@ -620,6 +620,7 @@ function getCurrentModel(formId) {
 var rdTimer = 0;
 
 function reload(){
+    console.log("Reload");
     loadData("modelCollections", loadModel);
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);
@@ -631,8 +632,7 @@ $("#resetBTN").click(function() {
         "reset": true
     };
     saveData("resetDefault", JSON.stringify(dat));
-    rdTimer = setTimeout(reload, 1000);
-
+    rdTimer = setTimeout(reload, 2500);
 });
 //-----------------------------------------
 //-----------------------------------------
