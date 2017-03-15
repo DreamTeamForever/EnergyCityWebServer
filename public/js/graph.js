@@ -3,7 +3,9 @@ var graphTimer = 0; //Таймер
 loadData("testGraphData",testGraph); //для теста
 var cy; //= cytoscape(settignsGraph);
 var layout;
-
+var positonCrap;
+var zoomCrap;
+var timerSP = 0;
 
 //-----------------------------------------
 function testGraph(data) {
@@ -30,13 +32,22 @@ function enableTimerGp(gameState,time) {
 //----загрузка данных----------------------
 function loadGr(data) {   
     graphData = data;
-    layout.stop();
+    //layout.stop();
     var collection = cy.elements();
     cy.remove( collection );
     collection = getDataGraph();
     cy.add(collection);
     layout = cy.makeLayout({ name: 'dagre' });
+    // console.log(JSON.stringify(cy.pan()));
+    // console.log(JSON.stringify(cy.zoom()));
     layout.start();
+    // console.log("-----------------------");
+    //cy.zoom(setPos());
+    //cy.pan();
+    cy.zoom(zoomCrap);
+    cy.pan(positonCrap);
+    // console.log(JSON.stringify(cy.pan()));
+    // console.log(JSON.stringify(cy.zoom()));
 };
 //-----------------------------------------
 
@@ -58,6 +69,10 @@ function forGraphOnly() {
     cy = cytoscape(getSettingsGraph());
     layout = cy.makeLayout({ name: 'dagre' });
     layout.run();
+    positonCrap = cy.pan();
+    cy.userPanningEnabled(true);
+    //console.log(cy.userPanningEnabled());
+    timerSP = setInterval('savePos()',250);
 
     var selectedNodeHandler = function(evt) {
         $("#edge-operation").hide();
@@ -85,5 +100,20 @@ function forGraphOnly() {
     cy.on('unselect', 'node', unselectedHandler);
     cy.on('select', 'edge', selectedEdgeHandler);
     cy.on('unselect', 'edge', unselectedHandler);
+    cy.on('tap', function(event){
+        var evtTarget = event.cyTarget;
+        if( evtTarget === cy ){
+            console.log('tap on background');
+        } else {
+            console.log('tap on some element');
+        }
+    });
+}
+
+function savePos(){
+    positonCrap = cy.pan();
+    zoomCrap = cy.zoom();
+    // console.log("POS "+JSON.stringify(positonCrap));
+    // console.log("ZOOM "+JSON.stringify(zoomCrap));
 }
 //-----------------------------------------
