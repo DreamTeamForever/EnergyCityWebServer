@@ -45,3 +45,19 @@
 	color: white;
 	display: inline-block;
 }
+
+#vault{
+	color: black;
+}
+
+#energy_up{
+	color: green;
+}
+
+#energy_down{
+	color: red;
+}
+
+.donat{
+  height:200px;
+}

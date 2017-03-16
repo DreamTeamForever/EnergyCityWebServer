@@ -2,12 +2,12 @@
 var dataChart; //Данные для построения графика
 var chartTimer = 0; //Таймер
 var idObject = "1";
-loadData("dataChart",loadChart); //для теста
+loadData("dataChart", loadChart); //для теста
 //-----------------------------------------
 
 //----создание графика----
 var chartMoris = Morris.Area({
-    element : 'area-chart',
+    element: 'area-chart',
     data: dataChart,
     xkey: ['step'],
     ykeys: ['input', 'output'],
@@ -17,11 +17,43 @@ var chartMoris = Morris.Area({
     behaveLikeLine: true,
     resize: true,
     parseTime: false,
-    pointFillColors:['#ffffff'],
+    pointFillColors: ['#ffffff'],
     pointStrokeColors: ['blue'],
-    lineColors:['green','red']
+    lineColors: ['green', 'red']
 });
 //-----------------------------------------
+
+
+Morris.Donut({
+    element: 'morris-donut-sun',
+    data: [{
+        label: "Ligth",
+        value: 12
+    }, {
+        label: "Dark",
+        value: 45
+    }],
+    resize: true
+});
+
+Morris.Donut({
+    element: 'morris-donut-wind',
+    data: [{
+        label: "Power",
+        value: 12
+    }, {
+        label: "Brizz",
+        value: 30
+    }],
+    resize: true,
+    colors: [
+        '#0BA462',
+        '#39B580',
+        '#67C69D',
+        '#95D7BB'
+    ],
+});
+
 
 //----загрузка данных----------------------
 function loadChart(data) {
@@ -32,20 +64,20 @@ function loadChart(data) {
 
 //----обновление данных--------------------
 function updateChart() {
-    loadData("dataChart",loadChart);
+    loadData("dataChart", loadChart);
 }
 //-----------------------------------------
 
 //----обновление данных по таймеру---------
-function enableTimerCh(gameState,time) {
-    if(gameState){
-        chartTimer = setInterval('updateChart()',time);
+function enableTimerCh(gameState, time) {
+    if (gameState) {
+        chartTimer = setInterval('updateChart()', time);
     } else {
         clearInterval(chartTimer);
     }
 }
 
-function setIdObjectChart(id){
+function setIdObjectChart(id) {
     console.log(id);
     idObject = id;
     updateChart();
@@ -54,7 +86,7 @@ function setIdObjectChart(id){
 function findObject(data) {
     var temp = data[0].object_data;
     for (var i = 0; i < data.length; i++) {
-        if(data[i].object_id ==idObject) {
+        if (data[i].object_id == idObject) {
             temp = data[i].object_data;
             break;
         }
