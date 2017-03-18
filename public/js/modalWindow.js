@@ -143,7 +143,7 @@ function enableTimerGm(gameState, time) {
 }
 
 function realTimer() {
-    gamerClock.minute += 1;
+    gamerClock.minute += 20;
     if (gamerClock.minute == 60) {
         gamerClock.hour += 1;
         gamerClock.minute = 0;
