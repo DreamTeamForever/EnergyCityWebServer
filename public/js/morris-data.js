@@ -25,27 +25,7 @@ var chartMoris = Morris.Area({
 //-----------------------------------------
 
 //-------СЕКТОР ПРИЗ-----------------------
-var dataAll = [{
-        step: '2014',
-        input: 50,
-        output: 90
-    },
-    {
-        step: '2015',
-        input: 65,
-        output: 75
-    },
-    {
-        step: '2016',
-        input: 50,
-        output: 50
-    },
-    {
-        step: '2024',
-        input: 160,
-        output: 95
-    }
-];
+var dataAll;
 
 var chartEconomy = Morris.Bar({
     element: 'area-chart-econom',
@@ -154,9 +134,12 @@ function findObject(data) {
 //-----------economy----------------------
 function changeEconomy() {
     var io =  findId($('#select_econom_model').val());
-    console.log(io);
-    var ttt = findEcData(io);
-    chartEconomy.setData(preMagickNumber(ttt));
+   // console.log(io);
+   // console.log(dataAll);
+    //console.log(findEcData(io));
+    var countFor = findEcData(io);
+    //console.log(ttt);
+    chartEconomy.setData(dataAll[countFor].object_data);
 }
 //-----------------------------------------
 function findId(name) {
@@ -169,17 +152,23 @@ function findId(name) {
 //-----------------------------------------
 
 function findEcData(id) {
+    var temp5;
     for (var i = 0; i < dataAll.length; i++) {
+	console.log(dataAll[i].object_id);
         if(dataAll[i].object_id == id){
-            return datatAll[i].object_data;
+            temp5 = i;
+	    //console.log(dataAll[i].object_data);
+	    //console.log(temp5);
         }
     }
+    return temp5;
 }
 
 function preMagickNumber(data) {
     for (var i = 0; i < data.length; i++) {
-        data.input = Number(data.input)*magickC;
-        data.output = Number(data.output)*magickC;
+        data.input = data.input*magickC;
+        data.output = data.output*magickC;
     }
+    console.log(data);
     return data;
 }
