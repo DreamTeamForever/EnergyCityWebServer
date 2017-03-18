@@ -1,6 +1,7 @@
 //----Глобальные переменные и все такое----
 var dataChart; //Данные для построения графика
 var chartTimer = 0; //Таймер
+var magickC = 2.45;
 var idObject = "1";
 loadData("dataChart", loadChart); //для теста
 //-----------------------------------------
@@ -25,28 +26,28 @@ var chartMoris = Morris.Area({
 
 //-------СЕКТОР ПРИЗ-----------------------
 var dataAll = [{
-        y: '2014',
-        a: 50,
-        b: 90
+        step: '2014',
+        input: 50,
+        output: 90
     },
     {
-        y: '2015',
-        a: 65,
-        b: 75
+        step: '2015',
+        input: 65,
+        output: 75
     },
     {
-        y: '2016',
-        a: 50,
-        b: 50
+        step: '2016',
+        input: 50,
+        output: 50
     },
     {
-        y: '2024',
-        a: 160,
-        b: 95
+        step: '2024',
+        input: 160,
+        output: 95
     }
 ];
 
-var chartEconomy = Morris.Area({
+var chartEconomy = Morris.Bar({
     element: 'area-chart-econom',
     data: dataAll,
     xkey: ['step'],
@@ -135,24 +136,27 @@ function findObject(data) {
     return temp;
 }
 //-----------------------------------------
-function updateEconomy(id){
-    chartEconomy.setData(updateidEconomy(id));
-}
+// function updateEconomy(id){
+//     var chto = [];
+//     chto = preMagickNumber(updateidEconomy(id));
+//   //  chartEconomy.setData(chto);
+// }
 //-----------------------------------------
-function updateidEconomy(id){
-    for (var i = 0; i < dataAll.length; i++) {
-        if(dataAll[i].object_id == id) {
-            return dataAll[i].object_data;
-        }
-    }
-}
+// function updateidEconomy(id){
+//     for (var i = 0; i < dataAll.length; i++) {
+//         if(dataAll[i].object_id == id) {
+//             return dataAll[i].object_data;
+//         }
+//     }
+// }
 //-----------------------------------------
 
 //-----------economy----------------------
 function changeEconomy() {
     var io =  findId($('#select_econom_model').val());
     console.log(io);
-    chartEconomy.setData(findObject(io));
+    var ttt = findEcData(io);
+    chartEconomy.setData(preMagickNumber(ttt));
 }
 //-----------------------------------------
 function findId(name) {
@@ -170,4 +174,12 @@ function findEcData(id) {
             return datatAll[i].object_data;
         }
     }
+}
+
+function preMagickNumber(data) {
+    for (var i = 0; i < data.length; i++) {
+        data.input = Number(data.input)*magickC;
+        data.output = Number(data.output)*magickC;
+    }
+    return data;
 }
