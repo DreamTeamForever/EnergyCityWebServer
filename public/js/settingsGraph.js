@@ -17,11 +17,11 @@ function getSettingsGraph() {
                     'height': 60,
                     'content': 'data(label)',
                     'text-valign': 'top',
-                    'color': 'data(color_node)', //'#1ab394',
+                    'color': '#1ab394',
+                    'border-color': 'data(color_node)', //'#1ab394',
                     'background-fit': 'cover',
-                    'border-color': '#000',
-                    'border-width': 15,
-                    'border-opacity': 0.6
+                    'border-width': 13,
+                    'border-opacity': 0.5
                 }
             },
             {
@@ -47,7 +47,7 @@ function getSettingsGraph() {
                 style: {
                     'width': 90,
                     'height': 90,
-                    'border-color': 'green'
+                    'border-color': 'yellow'
                 }
             },
             {
