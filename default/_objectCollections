@@ -2,7 +2,7 @@
   {
     "object_id": "CH_001",
     "table_model": "Госпиталь",
-    "object_name": "hello",
+    "object_name": "Госпиталь #1",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -10,15 +10,15 @@
   {
     "object_id": "CH_002",
     "table_model": "Госпиталь",
-    "object_name": "hello",
+    "object_name": "Госпиталь #2",
     "object_type": "consumption",
-    "active": true,
+    "active": false,
     "online": true
   },
   {
     "object_id": "CU_001",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #1",
     "object_type": "consumption",
     "active": false,
     "online": true
@@ -26,7 +26,7 @@
   {
     "object_id": "CU_002",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #2",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -34,7 +34,7 @@
   {
     "object_id": "CU_003",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #3",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -42,7 +42,7 @@
   {
     "object_id": "CU_004",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #4",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -50,7 +50,7 @@
   {
     "object_id": "CU_005",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #5",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -58,7 +58,7 @@
   {
     "object_id": "CU_006",
     "table_model": "Микрорайон",
-    "object_name": "hello",
+    "object_name": "Микрорайон #6",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -66,7 +66,7 @@
   {
     "object_id": "CF_001",
     "table_model": "Фабрика",
-    "object_name": "hello",
+    "object_name": "Фабрика #1",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -74,7 +74,7 @@
   {
     "object_id": "CF_002",
     "table_model": "Фабрика",
-    "object_name": "hello",
+    "object_name": "Фабрика #2",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -82,7 +82,7 @@
   {
     "object_id": "GRA_001",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Электрический аккумулятор #1",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -90,15 +90,15 @@
   {
     "object_id": "GRA_002",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Электрический аккумулятор #2",
     "object_type": "supplier",
     "active": true,
     "online": true
   },
   {
     "object_id": "GRA_003",
-    "table_model": "123",
-    "object_name": "hello",
+    "table_model": "Статичная модель",
+    "object_name": "Электрический аккумулятор #3",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -106,7 +106,7 @@
   {
     "object_id": "GRD_001",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Дизель генератор #1",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -114,14 +114,14 @@
   {
     "object_id": "GRD_002",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Дизель генератор #2",
     "object_type": "supplier",
     "active": true,
     "online": true
   },
   {
     "object_id": "GRD_003",
-    "table_model": "Статичная модель",
+    "table_model": "Дизель генератор #3",
     "object_name": "hello",
     "object_type": "supplier",
     "active": true,
@@ -130,7 +130,7 @@
   {
     "object_id": "GW_001",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Ветрогенератор",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -138,7 +138,7 @@
   {
     "object_id": "GS_001",
     "table_model": "Статичная модель",
-    "object_name": "hello",
+    "object_name": "Солнечная батарея",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -146,7 +146,7 @@
   {
     "object_id": "MS_001",
     "table_model": " ",
-    "object_name": "hello",
+    "object_name": "Электрическая станция",
     "object_type": "station",
     "active": true,
     "online": true
@@ -154,7 +154,7 @@
   {
     "object_id": "SS_001",
     "table_model": " ",
-    "object_name": "hello",
+    "object_name": "Электрическая подстанция",
     "object_type": "station",
     "active": true,
     "online": true

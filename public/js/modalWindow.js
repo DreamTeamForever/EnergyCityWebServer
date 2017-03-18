@@ -635,6 +635,8 @@ $("#resetBTN").click(function() {
     rdTimer = setTimeout(reload, 2500);
 });
 //-----------------------------------------
+
+//-----Работа c печеньками-----------------
 //-----------------------------------------
 
 function writeCookie(name, value, days) {
@@ -664,3 +666,18 @@ function readCookie(name) {
 function eraseCookie(name) {
   writeCookie(name, "", -1);
 };
+//-----------------------------------------
+
+//-----Работа c экономическими печеньками--
+//-----------------------------------------
+function updateSelectEconomy() {
+  $("#select_economy option").remove();
+  for (var i = 0; i < data.length; i++) {
+    $('#select_economy').append($("<option></option>").attr("value", data[i].model_name).text(data[i].model_name));
+  }
+  $('#select_economy').val(" ");
+}
+    //$('#select_economy').val();
+    //selectModelType();
+//-----------------------------------------
+
