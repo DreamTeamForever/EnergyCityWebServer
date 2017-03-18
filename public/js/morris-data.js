@@ -22,9 +22,9 @@ var chartMoris = Morris.Area({
     lineColors: ['#1ab394', '#87d6c6']
 });
 //-----------------------------------------
-var chartMoris = Morris.Area({
+var chartEconomy = Morris.Area({
     element: 'area-chart-econom',
-    data: data,
+    data: dataAll,
     xkey: ['step'],
     ykeys: ['input', 'output'],
     labels: ['Total Income', 'Total Outcome'],
@@ -39,7 +39,7 @@ var chartMoris = Morris.Area({
     // lineColors: ['green', 'red']
 });
 //-------СЕКТОР ПРИЗ-----------------------
-var data = [{
+var dataAll = [{
         y: '2014',
         a: 50,
         b: 90
@@ -65,6 +65,7 @@ var data = [{
 
 //----загрузка данных----------------------
 function loadChart(data) {
+    dataAll = data;
     dataChart = findObject(data);
     chartMoris.setData(dataChart);
 }
@@ -129,5 +130,17 @@ function findObject(data) {
         }
     }
     return temp;
+}
+//-----------------------------------------
+function updateEconomy(id){
+    chartEconomy.setData(updateidEconomy(id));
+}
+//-----------------------------------------
+function updateidEconomy(id){
+    for (var i = 0; i < dataAll.length; i++) {
+        if(dataAll[i].object_id == id) {
+            return dataAll[i].object_data;
+        }
+    }
 }
 //-----------------------------------------
