@@ -56,9 +56,6 @@
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                <p class="navbar-text" id='vault'><i class="fa fa-rub"></i> 5000</p>
-                <p class="navbar-text" id='energy_up'><i class="fa fa-caret-up"></i> 302</p>
-                <p class="navbar-text" id='energy_down'><i class="fa fa-caret-down"></i> 134</p>
                 <label class="checkbox-inline">
                     <input id="startStop" class="smalltext" type="checkbox" data-toggle="toggle" data-on="ВКЛ" data-off="ВЫКЛ" data-onstyle="success" data-offstyle="danger">
                     <!-- <label id="startStopLabel">День: 0; Час: 0; Минута: 0.</label> -->
@@ -68,17 +65,20 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
+                        <li class="dropdown-header text-center">Настройки</li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#game_settings"><i class="fa fa-gear fa-fw"></i> Настройки игры</a>
                         </li>
                         <li>
                             <a href="#" data-toggle="modal" data-target="#model_settings"><i class="fa fa-pencil-square-o fa-fw"></i> Настройки моделей</a>
                         </li>
-                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header text-center">Экономика</li>
+                        <!-- <li role="separator" class="divider"></li> -->
                         <li>
                             <a href="#" data-toggle="modal" data-target="#econom_settings"><i class="fa fa-money fa-fw"></i> Экономические показатели</a>
                         </li>
-                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header text-center">Восстановление</li>
+                        <!-- <li role="separator" class="divider"></li> -->
                         <li>
                             <a href="#" data-toggle="modal" data-target="#reset_default"><i class="fa fa-minus-circle fa-fw"></i> Восстановление настроек</a>
                         </li>
@@ -230,32 +230,6 @@
                         </div>
                         <div class="panel-body">
                             <div id="area-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="col-md-6 col-sm-6 col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Wind
-                        </div>
-                        <div class="panel-body">
-                            <div class="donat" id="morris-donut-wind"></div>
-                            <a href="#" class="btn btn-default btn-block">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- </div>
-            <div class="container-fluid"> -->
-                <div class="col-md-6 col-sm-6 col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Sun
-                        </div>
-                        <div class="panel-body">
-                            <div class="donat" id="morris-donut-sun"></div>
-                            <a href="#" class="btn btn-default btn-block">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -973,10 +947,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Economicon</h4>
+                    <h4 class="modal-title">Экономические показатели</h4>
                 </div>
                 <div class="modal-body">
-                    <span class="label label-default">Do some economicon ... bro</span>
+                    <div class="form-group">
+                        <label for="select_model_type" class="col-sm-3 control-label">Выбор типа: </label>
+                        <div class="col-sm-4 col-xs-4">
+                            <select id="select_econom_model" class="form-control">1</select>
+                        </div>
+                    </div>
+                    <div id="area-chart-econom"></div>
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
