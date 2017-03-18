@@ -19,7 +19,7 @@ var chartMoris = Morris.Area({
     parseTime: false,
     pointFillColors: ['#ffffff'],
     pointStrokeColors: ['blue'],
-    lineColors: ['green', 'red']
+    lineColors: ['#1ab394', '#87d6c6']
 });
 //-----------------------------------------
 var chartMoris = Morris.Area({
@@ -35,7 +35,8 @@ var chartMoris = Morris.Area({
     parseTime: false,
     pointFillColors: ['#ffffff'],
     pointStrokeColors: ['blue'],
-    lineColors: ['green', 'red']
+    lineColors: ['#1ab394', '#87d6c6']
+    // lineColors: ['green', 'red']
 });
 //-------СЕКТОР ПРИЗ-----------------------
 var data = [{
