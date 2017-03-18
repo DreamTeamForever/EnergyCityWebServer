@@ -22,22 +22,7 @@ var chartMoris = Morris.Area({
     lineColors: ['#1ab394', '#87d6c6']
 });
 //-----------------------------------------
-var chartEconomy = Morris.Area({
-    element: 'area-chart-econom',
-    data: dataAll,
-    xkey: ['step'],
-    ykeys: ['input', 'output'],
-    labels: ['Total Income', 'Total Outcome'],
-    fillOpacity: 0.6,
-    hideHover: 'auto',
-    behaveLikeLine: true,
-    resize: true,
-    parseTime: false,
-    pointFillColors: ['#ffffff'],
-    pointStrokeColors: ['blue'],
-    lineColors: ['#1ab394', '#87d6c6']
-    // lineColors: ['green', 'red']
-});
+
 //-------СЕКТОР ПРИЗ-----------------------
 var dataAll = [{
         y: '2014',
@@ -60,6 +45,24 @@ var dataAll = [{
         b: 95
     }
 ];
+
+var chartEconomy = Morris.Area({
+    element: 'area-chart-econom',
+    data: dataAll,
+    xkey: ['step'],
+    ykeys: ['input', 'output'],
+    labels: ['Total Income', 'Total Outcome'],
+    fillOpacity: 0.6,
+    hideHover: 'auto',
+    behaveLikeLine: true,
+    resize: true,
+    parseTime: false,
+    pointFillColors: ['#ffffff'],
+    pointStrokeColors: ['blue'],
+    lineColors: ['#1ab394', '#87d6c6']
+    // lineColors: ['green', 'red']
+});
+
 
 //-----------------------------------------
 
@@ -144,3 +147,26 @@ function updateidEconomy(id){
     }
 }
 //-----------------------------------------
+
+//-----------economy----------------------
+function changeEconomy() {
+    var io =  findId($('#select_econom_model').val());
+    chartEconomy.setData(findObject(io));
+}
+//-----------------------------------------
+function findId(name) {
+    for (var i = 0; i < object_model.length; i++) {
+        if(object_model[i].object_name == name){
+            return object_model[i].object_id;
+        }
+    }
+}
+//-----------------------------------------
+
+function findEcData(id) {
+    for (var i = 0; i < dataAll.length; i++) {
+        if(dataAll[i].object_id == id){
+            return datatAll[i].object_data;
+        }
+    }
+}

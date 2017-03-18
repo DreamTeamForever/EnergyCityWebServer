@@ -687,33 +687,17 @@ $('#econom_settings').on('show.bs.modal', function() {
 });
 //-----------------------------------------
 
-//-----------economy----------------------
-function changeEconomy() {
-    superIDObject = findId($('#select_econom_model').val());
-}
-//-----------------------------------------
-function findId(name) {
-    for (var i = 0; i < object_model.length; i++) {
-        if(object_model[i].object_name == name){
-            return object_model[i].object_id;
-        }
-    }
-}
-//-----------------------------------------
-
-
-function updateEconomy(id){
-    chartEconomy.setData(updateidEconomy(id));
-}
-//-----------------------------------------
-function updateidEconomy(id){
-    for (var i = 0; i < dataAll.length; i++) {
-        if(dataAll[i].object_id == id) {
-            return dataAll[i].object_data;
-        }
-    }
-}
-//-----------------------------------------
-
-
+// //-----------economy----------------------
+// function changeEconomy() {
+//     superIDObject = findId($('#select_econom_model').val());
+// }
+// //-----------------------------------------
+// function findId(name) {
+//     for (var i = 0; i < object_model.length; i++) {
+//         if(object_model[i].object_name == name){
+//             return object_model[i].object_id;
+//         }
+//     }
+// }
+// //-----------------------------------------
 
