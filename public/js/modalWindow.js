@@ -153,12 +153,22 @@ function realTimer() {
         gamerClock.day += 1;
         gamerClock.hour = 0;
     }
-    if (gamerClock.day == 99) {
+    if (gamerClock.day >= 7) {
         gamerClock.minute = 0;
         gamerClock.hour = 0;
         gamerClock.day = 0;
+        endGameFunc();
+        return 0;
     }
     changeTimerLabel();
+}
+
+function endGameFunc() {
+    // saveData("stopGame", JSON.stringify(game));
+    // stopGame();
+    console.log('game_over');
+    $('#startStop').bootstrapToggle('off')
+    $('#game_over_modal').modal('show');
 }
 
 function changeTimerLabel() {
@@ -170,38 +180,38 @@ function changeTimerLabel() {
     saveClock();
 }
 
-function saveClock(){
+function saveClock() {
     eraseCookie("days");
     eraseCookie("hours");
     eraseCookie("minutes");
-    writeCookie("days",gamerClock.day,10);
-    writeCookie("hours",gamerClock.hour,10);
-    writeCookie("minutes",gamerClock.minute,10);
+    writeCookie("days", gamerClock.day, 10);
+    writeCookie("hours", gamerClock.hour, 10);
+    writeCookie("minutes", gamerClock.minute, 10);
 }
 
-function readClock(){
-   gamerClock.day    = Number(readCookie("days"));
-   gamerClock.hour   = Number(readCookie("hours"));
-   gamerClock.minute = Number(readCookie("minutes"));
+function readClock() {
+    gamerClock.day = Number(readCookie("days"));
+    gamerClock.hour = Number(readCookie("hours"));
+    gamerClock.minute = Number(readCookie("minutes"));
 }
 
 function loadState() {
     var tem = readCookie("game");
     console.log(tem);
-    if(tem == "true"){
+    if (tem == "true") {
         //stopTimer();
         readClock();
         changeTimerLabel();
         $('#startStop').bootstrapToggle('on');
         // readClock();
-        
-         //startGame();
-    } 
+
+        //startGame();
+    }
     //else {
-      // readClock();
-      // changeTimerLabel();
-        // stopTimer();
-        //$('#startStop').bootstrapToggle('off');
+    // readClock();
+    // changeTimerLabel();
+    // stopTimer();
+    //$('#startStop').bootstrapToggle('off');
     //}
 }
 //-----------------------------------------
@@ -214,7 +224,7 @@ function startTimer() {
     enableTimerGp(true, val);
     enableTimerGm(true, val);
     eraseCookie("game");
-    writeCookie("game","true",10);
+    writeCookie("game", "true", 10);
 }
 
 function stopTimer() {
@@ -224,7 +234,7 @@ function stopTimer() {
     enableTimerGp(false, val);
     enableTimerGm(false, val);
     eraseCookie("game");
-    writeCookie("game","false",10);
+    writeCookie("game", "false", 10);
 }
 //-----------------------------------------
 
@@ -620,13 +630,13 @@ function getCurrentModel(formId) {
 //----Выпилить все настройки игры---------
 var rdTimer = 0;
 
-function reload(){
+function reload() {
     console.log("Reload");
     loadData("modelCollections", loadModel);
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);
     clearTimeout(rdTimer);
-} 
+}
 
 $("#resetBTN").click(function() {
     var dat = {
@@ -641,42 +651,42 @@ $("#resetBTN").click(function() {
 //-----------------------------------------
 
 function writeCookie(name, value, days) {
-  var expires = "";
-  if(days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days*24*60*60*1000));
-    expires = "; expires=" + date.toGMTString();
-    document.cookie = name + "=" + value + expires + "; path=/";
-  }
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
 };
 
 function readCookie(name) {
-  var searchName = name + "=";
-  var cookies = document.cookie.split(';');
-  for (var i = 0; i < cookies.length; i++) {
-    var c = cookies[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1, c.length);
+    var searchName = name + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var c = cookies[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1, c.length);
+        }
+        if (c.indexOf(searchName) == 0)
+            return c.substring(searchName.length, c.length);
     }
-    if (c.indexOf(searchName) == 0)
-      return c.substring(searchName.length, c.length);
-  }
-  return null;
+    return null;
 };
 
 function eraseCookie(name) {
-  writeCookie(name, "", -1);
+    writeCookie(name, "", -1);
 };
 //-----------------------------------------
 
 //-----Работа c экономическими печеньками--
 //-----------------------------------------
 function updateSelectEconomy() {
-  $("#select_econom_model option").remove();
-  for (var i = 0; i < object_model.length; i++) {
-    $('#select_econom_model').append($("<option></option>").attr("value", object_model[i].object_name).text(object_model[i].object_name));
-  }
-  $('#select_econom_model').val(" ");
+    $("#select_econom_model option").remove();
+    for (var i = 0; i < object_model.length; i++) {
+        $('#select_econom_model').append($("<option></option>").attr("value", object_model[i].object_name).text(object_model[i].object_name));
+    }
+    $('#select_econom_model').val(" ");
 }
 //-----------------------------------------
 
@@ -700,4 +710,3 @@ $('#econom_settings').on('show.bs.modal', function() {
 //     }
 // }
 // //-----------------------------------------
-
