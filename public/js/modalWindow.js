@@ -671,13 +671,17 @@ function eraseCookie(name) {
 //-----Работа c экономическими печеньками--
 //-----------------------------------------
 function updateSelectEconomy() {
-  $("#select_economy option").remove();
-  for (var i = 0; i < data.length; i++) {
-    $('#select_economy').append($("<option></option>").attr("value", data[i].model_name).text(data[i].model_name));
+  $("#select_econom_model option").remove();
+  for (var i = 0; i < object_model.length; i++) {
+    $('#select_econom_model').append($("<option></option>").attr("value", object_model[i].object_name).text(object_model[i].object_name));
   }
-  $('#select_economy').val(" ");
+  $('#select_econom_model').val(" ");
 }
-    //$('#select_economy').val();
-    //selectModelType();
 //-----------------------------------------
 
+
+//----экономика еба------------------------
+$('#econom_settings').on('show.bs.modal', function() {
+    updateSelectEconomy()
+});
+//-----------------------------------------

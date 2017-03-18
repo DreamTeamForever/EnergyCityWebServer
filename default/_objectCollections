@@ -121,8 +121,8 @@
   },
   {
     "object_id": "GRD_003",
-    "table_model": "Дизель генератор #3",
-    "object_name": "hello",
+    "table_model": "Статичная модель",
+    "object_name": "Дизель генератор #2",
     "object_type": "supplier",
     "active": true,
     "online": true
