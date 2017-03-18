@@ -151,6 +151,7 @@ function updateidEconomy(id){
 //-----------economy----------------------
 function changeEconomy() {
     var io =  findId($('#select_econom_model').val());
+    console.log(io);
     chartEconomy.setData(findObject(io));
 }
 //-----------------------------------------

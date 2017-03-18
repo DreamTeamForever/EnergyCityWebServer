@@ -153,7 +153,7 @@ function realTimer() {
         gamerClock.day += 1;
         gamerClock.hour = 0;
     }
-    if (gamerClock.day >= 7) {
+    if (gamerClock.day >= 8) {
         gamerClock.minute = 0;
         gamerClock.hour = 0;
         gamerClock.day = 0;
