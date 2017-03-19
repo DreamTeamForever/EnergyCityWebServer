@@ -27,29 +27,28 @@ var chartMoris = Morris.Area({
 //-------СЕКТОР ПРИЗ-----------------------
 var dataAll;
 
-var chartEconomy = Morris.Bar({
-    element: 'area-chart-econom',
-    data: dataAll,
-    xkey: ['step'],
-    ykeys: ['input', 'output'],
-    labels: ['Total Income', 'Total Outcome'],
-    fillOpacity: 0.6,
-    hideHover: 'auto',
-    behaveLikeLine: true,
-    resize: true,
-    parseTime: false,
-    pointFillColors: ['#ffffff'],
-    pointStrokeColors: ['blue'],
-    lineColors: ['#1ab394', '#87d6c6']
-    // lineColors: ['green', 'red']
-});
+// var chartEconomy = Morris.Bar({
+//     element: 'area-chart-econom',
+//     data: dataAll,
+//     xkey: ['step'],
+//     ykeys: ['input', 'output'],
+//     labels: ['Total Income', 'Total Outcome'],
+//     fillOpacity: 0.6,
+//     hideHover: 'auto',
+//     behaveLikeLine: true,
+//     resize: true,
+//     parseTime: false,
+//     pointFillColors: ['#ffffff'],
+//     pointStrokeColors: ['blue'],
+//     lineColors: ['#1ab394', '#87d6c6']
+// });
 
 
 //-----------------------------------------
 
 //----загрузка данных----------------------
 function loadChart(data) {
-    dataAll = data;
+    //dataAll = data;
     dataChart = findObject(data);
     chartMoris.setData(dataChart);
 }
@@ -71,7 +70,7 @@ function enableTimerCh(gameState, time) {
 }
 
 function setIdObjectChart(id) {
-    console.log(id);
+    // console.log(id);
     idObject = id;
     updateChart();
 }
@@ -100,7 +99,7 @@ function enableTimerCh(gameState, time) {
 }
 
 function setIdObjectChart(id) {
-    console.log(id);
+    // console.log(id);
     idObject = id;
     updateChart();
 }
@@ -154,7 +153,7 @@ function findId(name) {
 function findEcData(id) {
     var temp5;
     for (var i = 0; i < dataAll.length; i++) {
-	console.log(dataAll[i].object_id);
+	// console.log(dataAll[i].object_id);
         if(dataAll[i].object_id == id){
             temp5 = i;
 	    //console.log(dataAll[i].object_data);
@@ -169,6 +168,39 @@ function preMagickNumber(data) {
         data.input = data.input*magickC;
         data.output = data.output*magickC;
     }
-    console.log(data);
+    // console.log(data);
     return data;
 }
+
+$('#econom_settings').on('show.bs.modal', function() {
+    updateSelectEconomy();
+    testTest_te();
+});
+
+var rpTimer = 0;
+
+function forReload() {
+    clearTimeout(rdTimer);
+}
+
+function testTest_te() {
+    rpTimer = setTimeout(forReload, 200);
+    chartEconomy = Morris.Bar({
+    element: 'area-chart-econom',
+    data: dataAll,
+    xkey: ['step'],
+    ykeys: ['input', 'output'],
+    labels: ['Total Income', 'Total Outcome'],
+    fillOpacity: 0.6,
+    hideHover: 'auto',
+    behaveLikeLine: true,
+    resize: true,
+    parseTime: false,
+    pointFillColors: ['#ffffff'],
+    pointStrokeColors: ['blue'],
+    lineColors: ['#1ab394', '#87d6c6']
+    });
+}
+
+// gameTime
+// economycData

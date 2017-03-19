@@ -693,7 +693,7 @@ function updateSelectEconomy() {
 
 //----экономика еба------------------------
 $('#econom_settings').on('show.bs.modal', function() {
-    updateSelectEconomy()
+    updateSelectEconomy();
 });
 //-----------------------------------------
 
