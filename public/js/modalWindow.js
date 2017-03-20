@@ -689,24 +689,3 @@ function updateSelectEconomy() {
     $('#select_econom_model').val(" ");
 }
 //-----------------------------------------
-
-
-//----экономика еба------------------------
-$('#econom_settings').on('show.bs.modal', function() {
-    updateSelectEconomy();
-});
-//-----------------------------------------
-
-// //-----------economy----------------------
-// function changeEconomy() {
-//     superIDObject = findId($('#select_econom_model').val());
-// }
-// //-----------------------------------------
-// function findId(name) {
-//     for (var i = 0; i < object_model.length; i++) {
-//         if(object_model[i].object_name == name){
-//             return object_model[i].object_id;
-//         }
-//     }
-// }
-// //-----------------------------------------
