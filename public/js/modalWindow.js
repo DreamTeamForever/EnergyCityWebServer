@@ -322,7 +322,7 @@ function editTable(type) {
                         val = 0;
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
-                        alert("Введите значения в диапазоне от 0 до 80, включительно!");
+                        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
                     }
                 }
             });
@@ -477,6 +477,7 @@ function getTableData(table) {
 //----Сохранение коллекции моделей на сервере--------
 function saveСhangesModel() {
     saveData("modelCollections", JSON.stringify(table_model));
+    alert("Настройки моделей сохранены!");
 }
 //-----------------------------------------
 
@@ -485,6 +486,7 @@ function discardChangesModel() {
     $("#table_model_body tr").remove();
     loadData("modelCollections", loadModel);
     loadData("modelCollections", updateSelectModel);
+    alert("Настройки моделей восстановлены до ранее сохраненного состояния!");
 }
 //-----------------------------------------
 //-----------------------------------------
@@ -534,16 +536,26 @@ function updateSelectSettings(data) {
 
 //----Сохранение настроек на сервере--------
 function saveGameSettings() {
+
     game_model.gameSpeed = $("#inputSpeed").val();
     game_model.sunModel = $("#inputSolModel").val();
     game_model.windModel = $("#inputWindModel").val();
-    saveData("gameSettings", JSON.stringify(game_model));
+    if(game_model.gameSpeed >= 5 && game_model.gameSpeed <= 60){
+        saveData("gameSettings", JSON.stringify(game_model));
+        alert("Настройки игры сохранены!");
+    } else {
+        $("#inputSpeed").val(5);
+        game_model.gameSpeed = $("#inputSpeed").val();
+        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения скорости игры в диапазоне от 5 до 60, включительно!");
+    }
+    
 }
 //-----------------------------------------
 
 //----Отмена изменений--------
 function discardChangesSettings() {
     updateFormSettings(game_model);
+    alert("Настройки игры восстановлены до ранее сохраненного состояния!");
 }
 //-----------------------------------------
 //-----------------------------------------
@@ -598,6 +610,7 @@ function saveForBtn(formId) {
                 object_model[i].table_model = $("#" + formId).find(".form-control").val();
                 object_model[i].active = $("#" + formId).find("input").prop('checked');
                 saveData("objectCollections", JSON.stringify(object_model));
+                alert("Настройки объекта сохранены!");
             }
         }
     });
@@ -607,6 +620,7 @@ function saveForBtn(formId) {
 function discardForBtn(formId) {
     $("#" + formId).find(".modal-footer").find(".btn.btn-default").click(function() {
         updateCustomSelect(formId, getCurrentModel(formId));
+        alert("Настройки объекта восстановлены до ранее сохраненного состояния!");
     });
 }
 //-----------------------------------------
@@ -640,6 +654,7 @@ function reload() {
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);
     clearTimeout(rdTimer);
+    alert("Выполнено восстановление настроек системы!");
 }
 
 $("#resetBTN").click(function() {
