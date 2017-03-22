@@ -30,7 +30,7 @@ function enableTimerGp(gameState,time) {
 //-----------------------------------------
 
 //----загрузка данных----------------------
-function loadGr(data) {   
+function loadGr(data) {
     graphData = data;
     //layout.stop();
     var collection = cy.elements();
@@ -79,6 +79,7 @@ function forGraphOnly() {
         $("#node-operation").show();
         var target = evt.cyTarget;
         console.log('select ' + target.id(), target);
+        $("#graph_name").text("График потребления '" + target.data('label') + "'")
         $("#selected").text("Selected:" + target.id());
         setIdObjectChart(target.id());
     }
