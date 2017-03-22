@@ -8,27 +8,29 @@ loadData("dataChart", loadChart); //для теста
 //-----------------------------------------
 
 //----создание графика----
-var chartMoris = Morris.Area({
+var chartMoris = Morris.Line({
     element: 'area-chart',
     data: dataChart,
     xkey: ['step'],
     ykeys: ['input', 'output'],
-    labels: ['Total Income', 'Total Outcome'],
+    labels: ['Реальное потребление/Эталонное выработка электроэнергии', 'Эталонное потребление/Реальная выработка электроэнергии'],
     fillOpacity: 0.6,
     hideHover: 'auto',
     behaveLikeLine: true,
     resize: true,
     parseTime: false,
     pointFillColors: ['#ffffff'],
-    pointStrokeColors: ['blue'],
-    lineColors: ['#1ab394', '#87d6c6']
+    pointStrokeColors: ['grey'],
+    lineColors: ['blue', 'orange']
+    // lineColors: ['#1ab394', '#87d6c6']
 });
 //-----------------------------------------
 
 //-------СЕКТОР ПРИЗ-----------------------
 var dataAll = [ {"step":0,"incom":0},
                 {"step":0,"incom":0},
-                {"step":0,"incom":0} 
+                {"step":0,"incom":0},
+                {"step":0,"incom":0}
 ];
 
 //-----------------------------------------
@@ -154,7 +156,7 @@ function initChart() {
         pointFillColors: ['#ffffff'],
         pointStrokeColors: ['blue'],
         lineColors: ['#1ab394', '#87d6c6']
-        }); 
+        });
     }
     chartTest = false;
 }
