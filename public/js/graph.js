@@ -38,7 +38,7 @@ function loadGr(data) {
     cy.remove( collection );
     collection = getDataGraph();
     cy.add(collection);
-    layout = cy.makeLayout({ name: 'dagre' });
+    layout = cy.makeLayout({ name: 'breadthfirst', roots: ["MS_001", "SS_001"], spacingFactor: 1.0});
     // console.log(JSON.stringify(cy.pan()));
     // console.log(JSON.stringify(cy.zoom()));
     layout.start();
@@ -70,7 +70,7 @@ function forGraphOnly() {
     setTimeout(resize, 0);
 
     cy = cytoscape(getSettingsGraph());
-    layout = cy.makeLayout({ name: 'dagre' });
+    layout = cy.makeLayout({ name: 'breadthfirst', roots: ["MS_001", "SS_001"], spacingFactor: 1.0});
     layout.run();
     positonCrap = cy.pan();
     cy.userPanningEnabled(true);

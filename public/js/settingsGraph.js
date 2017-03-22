@@ -7,14 +7,14 @@ function getSettingsGraph() {
     var settignsGraph = {
         container: document.getElementById('cy'),
         autoungrabify: true,
-        minZoom: 0.5,
-        maxZoom: 10,
+        minZoom: 0.3,
+        maxZoom: 2,
         wheelSensitivity: 0.1,
         style: [{
                 selector: 'node',
                 style: {
-                    'width': 60,
-                    'height': 60,
+                    'width': 100,
+                    'height': 100,
                     'content': 'data(label)',
                     'text-valign': 'top',
                     'color': '#1ab394',
@@ -45,8 +45,8 @@ function getSettingsGraph() {
             {
                 selector: 'node:selected',
                 style: {
-                    'width': 90,
-                    'height': 90,
+                    'width': 120,
+                    'height': 120,
                     'border-color': 'yellow'
                 }
             },
