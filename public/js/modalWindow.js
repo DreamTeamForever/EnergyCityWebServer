@@ -324,6 +324,29 @@ function editTable(type) {
                         editCurrentTable(countId, val, countIndex);
                         alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
                     }
+                } else if(type =="Модель ветра"){
+                    if(val >= 0 && val <= 80){
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                    } else {
+                        val = 0;
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
+                    }
+                } else if(type =="Модель потребителя" ||
+                          type =="Модель поставщика" ||
+                          type =="Модель станции"    ){
+                    if(val >= 0 && val <= 500){
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                    } else {
+                        val = 0;
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 500, включительно!");
+                    }
+
                 }
             });
         });
