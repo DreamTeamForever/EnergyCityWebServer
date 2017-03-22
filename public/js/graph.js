@@ -32,6 +32,7 @@ function enableTimerGp(gameState,time) {
 //----загрузка данных----------------------
 function loadGr(data) {
     graphData = data;
+    console.log(graphData);
     //layout.stop();
     var collection = cy.elements();
     cy.remove( collection );
@@ -81,9 +82,11 @@ function forGraphOnly() {
         $("#node-operation").show();
         var target = evt.cyTarget;
         console.log('select ' + target.id(), target);
-        $("#graph_name").text("График потребления '" + target.data('label') + "'")
+        if(target.data('label') != "" ) {
+          $("#graph_name").text("График потребления '" + target.data('label') + "'");
+          setIdObjectChart(target.id());
+        }
         $("#selected").text("Selected:" + target.id());
-        setIdObjectChart(target.id());
         currentNodeId = target.id();
     }
 
