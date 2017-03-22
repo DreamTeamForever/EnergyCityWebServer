@@ -325,14 +325,14 @@ function editTable(type) {
                         alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
                     }
                 } else if(type =="Модель ветра"){
-                    if(val >= 0 && val <= 80){
+                    if(val >= 0 && val <= 70){
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
                     } else {
                         val = 0;
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
-                        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
+                        alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 70, включительно!");
                     }
                 } else if(type =="Модель потребителя" ||
                           type =="Модель поставщика" ||
