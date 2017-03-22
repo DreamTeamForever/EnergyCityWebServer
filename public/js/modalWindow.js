@@ -1,8 +1,8 @@
 //----Было надо, но теперь. Пусть будет----
-var sun_select = document.getElementById("input_sol_model");
-var wind_select = document.getElementById("input_wind_model");
-var save_settings = document.getElementById("btn_save_settings");
-var game_speed = document.getElementById("input_speed");
+// var sun_select = document.getElementById("input_sol_model");
+// var wind_select = document.getElementById("input_wind_model");
+// var save_settings = document.getElementById("btn_save_settings");
+// var game_speed = document.getElementById("input_speed");
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
@@ -10,6 +10,7 @@ var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
 var gamerTimer = 0; //Таймер для таймера
 var gamerCount = 0; //Счетчик для таймера
 var superIDObject;
+var superTypeModel = "";
 var gamerClock = {
     "day": 0,
     "hour": 0,
@@ -164,8 +165,6 @@ function realTimer() {
 }
 
 function endGameFunc() {
-    // saveData("stopGame", JSON.stringify(game));
-    // stopGame();
     console.log('game_over');
     $('#startStop').bootstrapToggle('off')
     $('#game_over_modal').modal('show');
@@ -199,20 +198,11 @@ function loadState() {
     var tem = readCookie("game");
     console.log(tem);
     if (tem == "true") {
-        //stopTimer();
         readClock();
         changeTimerLabel();
         $('#startStop').bootstrapToggle('on');
-        // readClock();
-
-        //startGame();
     }
-    //else {
-    // readClock();
-    // changeTimerLabel();
-    // stopTimer();
-    //$('#startStop').bootstrapToggle('off');
-    //}
+
 }
 //-----------------------------------------
 
@@ -300,11 +290,12 @@ function selectModel() {
         }
     }
     $("#select_model_type_с").val(model_t);
+    superTypeModel = model_t;
 }
 //-----------------------------------------
 
 //----Редактирование модели по кнопке------
-function editTable() {
+function editTable(type) {
     changeStateButtom(false, "btn_edit_model");
     $(function() {
         $('td').click(function(e) {
@@ -315,15 +306,25 @@ function editTable() {
             if (elm_name == 'input') {
                 return false;
             }
-            console.log($(this).index());
+            // console.log($(this).index());
+            console.log(type);
             var val = $(this).html();
             var code = '<input type="number" id="edit" value="' + val + '" />';
             $(this).empty().append(code);
             $('#edit').focus();
             $('#edit').blur(function() {
                 var val = $(this).val();
-                $(this).parent().empty().html(val);
-                editCurrentTable(countId, val, countIndex);
+                if(type =="Модель солнца"){
+                    if(val >= 0 && val <= 80){
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                    } else {
+                        val = 0;
+                        $(this).parent().empty().html(val);
+                        editCurrentTable(countId, val, countIndex);
+                        alert("Введите значения в диапазоне от 0 до 80, включительно!");
+                    }
+                }
             });
         });
     });
@@ -412,10 +413,13 @@ function initTable(n_m) {
         new_row.appendChild(document.createElement("TH")).innerText = j;
         new_row.insertCell(1).innerText = 0;
         new_row.insertCell(2).innerText = 0;
-    }
-    editTable();
+    } 
+    editTable($('#select_model_type').val());
 }
 //-----------------------------------------
+function editTableS() {
+    editTable(superTypeModel);
+}
 
 //----Добавлние таблицы модели в коллекцию--------
 function addTableModel() {
