@@ -6,7 +6,7 @@ var layout;
 var positonCrap;
 var zoomCrap;
 var timerSP = 0;
-
+var currentNodeId = 0;
 //-----------------------------------------
 function testGraph(data) {
     graphData = data;
@@ -46,6 +46,8 @@ function loadGr(data) {
     //cy.pan();
     cy.zoom(zoomCrap);
     cy.pan(positonCrap);
+    cy.$("#" + currentNodeId).select();
+    // cy.$('#j').select();
     // console.log(JSON.stringify(cy.pan()));
     // console.log(JSON.stringify(cy.zoom()));
 };
@@ -82,6 +84,7 @@ function forGraphOnly() {
         $("#graph_name").text("График потребления '" + target.data('label') + "'")
         $("#selected").text("Selected:" + target.id());
         setIdObjectChart(target.id());
+        currentNodeId = target.id();
     }
 
     var unselectedHandler = function(evt) {
