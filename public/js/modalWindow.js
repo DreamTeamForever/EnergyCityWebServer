@@ -6,8 +6,8 @@
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-// var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
-var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
+var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
+// var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
 var gamerTimer = 0; //Таймер для таймера
 var gamerCount = 0; //Счетчик для таймера
 var superIDObject;
@@ -501,7 +501,7 @@ function getTableData(table) {
 //----Сохранение коллекции моделей на сервере--------
 function saveChangesModel() {
     saveData("modelCollections", JSON.stringify(table_model));
-    alert("Настройки моделей сохранены!");
+    viewAlert("Настройки моделей сохранены!", 'model_settings');
 }
 //-----------------------------------------
 
@@ -510,7 +510,7 @@ function discardChangesModel() {
     $("#table_model_body tr").remove();
     loadData("modelCollections", loadModel);
     loadData("modelCollections", updateSelectModel);
-    alert("Настройки моделей восстановлены до ранее сохраненного состояния!");
+    viewAlert("Настройки моделей восстановлены до ранее сохраненного состояния!", 'model_settings');
 }
 //-----------------------------------------
 //-----------------------------------------
@@ -566,7 +566,7 @@ function saveGameSettings() {
     game_model.windModel = $("#inputWindModel").val();
     if (game_model.gameSpeed >= 5 && game_model.gameSpeed <= 60) {
         saveData("gameSettings", JSON.stringify(game_model));
-        alert("Настройки игры сохранены!");
+        viewAlert("Настройки игры сохранены!", 'game_settings');
     } else {
         $("#inputSpeed").val(5);
         game_model.gameSpeed = $("#inputSpeed").val();
@@ -578,7 +578,7 @@ function saveGameSettings() {
 //----Отмена изменений--------
 function discardChangesSettings() {
     updateFormSettings(game_model);
-    alert("Настройки игры восстановлены до ранее сохраненного состояния!");
+    viewAlert("Настройки игры восстановлены до ранее сохраненного состояния!", 'game_settings');
 }
 //-----------------------------------------
 //-----------------------------------------
@@ -682,7 +682,8 @@ function reload() {
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);
     clearTimeout(rdTimer);
-    alert("Выполнено восстановление настроек системы!");
+    var formId = 'model_settings';
+    viewAlert("Выполнено восстановление настроек системы!", formId);
 }
 
 $("#resetBTN").click(function() {

@@ -1,6 +1,6 @@
 //----Глобальные переменные и все такое---
 var graphTimer = 0; //Таймер
-loadData("testGraphData",testGraph); //для теста
+loadData("testGraphData", testGraph); //для теста
 var cy; //= cytoscape(settignsGraph);
 var layout;
 var positonCrap;
@@ -15,14 +15,14 @@ function testGraph(data) {
 
 //----обновление данных--------------------
 function updateGraph() {
-    loadData("testGraphData",loadGr);
+    loadData("testGraphData", loadGr);
 }
 //-----------------------------------------
 
 //----обновление данных по таймеру---------
-function enableTimerGp(gameState,time) {
-    if(gameState){
-        graphTimer = setInterval('updateGraph()',time);
+function enableTimerGp(gameState, time) {
+    if (gameState) {
+        graphTimer = setInterval('updateGraph()', time);
     } else {
         clearInterval(graphTimer);
     }
@@ -35,10 +35,14 @@ function loadGr(data) {
     //console.log(graphData);
     //layout.stop();
     var collection = cy.elements();
-    cy.remove( collection );
+    cy.remove(collection);
     collection = getDataGraph();
     cy.add(collection);
-    layout = cy.makeLayout({ name: 'breadthfirst', roots: ["MS_001", "SS_001"], spacingFactor: 1.0});
+    layout = cy.makeLayout({
+        name: 'breadthfirst',
+        roots: ["MS_001", "SS_001"],
+        spacingFactor: 1.0
+    });
     // console.log(JSON.stringify(cy.pan()));
     // console.log(JSON.stringify(cy.zoom()));
     layout.start();
@@ -62,7 +66,6 @@ function forGraphOnly() {
     });
 
     function resize() {
-        console.log(win.height(), win.innerHeight());
         $("#cy-container").height(win.innerHeight() / 2.0); // - 130);
         cy.resize();
     }
@@ -70,21 +73,25 @@ function forGraphOnly() {
     setTimeout(resize, 0);
 
     cy = cytoscape(getSettingsGraph());
-    layout = cy.makeLayout({ name: 'breadthfirst', roots: ["MS_001", "SS_001"], spacingFactor: 1.0});
+    layout = cy.makeLayout({
+        name: 'breadthfirst',
+        roots: ["MS_001", "SS_001"],
+        spacingFactor: 1.0
+    });
     layout.run();
     positonCrap = cy.pan();
     cy.userPanningEnabled(true);
     //console.log(cy.userPanningEnabled());
-    timerSP = setInterval('savePos()',250);
+    timerSP = setInterval('savePos()', 250);
 
     var selectedNodeHandler = function(evt) {
         $("#edge-operation").hide();
         $("#node-operation").show();
         var target = evt.cyTarget;
         //console.log('select ' + target.id(), target);
-        if(target.data('label') != "" ) {
-          $("#graph_name").text("График потребления '" + target.data('label') + "'");
-          setIdObjectChart(target.id());
+        if (target.data('label') != "") {
+            $("#graph_name").text("График потребления '" + target.data('label') + "'");
+            setIdObjectChart(target.id());
         }
         $("#selected").text("Selected:" + target.id());
         currentNodeId = target.id();
@@ -117,7 +124,7 @@ function forGraphOnly() {
     // });
 }
 
-function savePos(){
+function savePos() {
     positonCrap = cy.pan();
     zoomCrap = cy.zoom();
     // console.log("POS "+JSON.stringify(positonCrap));
