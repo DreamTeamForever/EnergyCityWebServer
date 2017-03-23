@@ -314,8 +314,8 @@ function editTable(type) {
             $('#edit').focus();
             $('#edit').blur(function() {
                 var val = $(this).val();
-                if(type =="Модель солнца"){
-                    if(val >= 0 && val <= 80){
+                if (type == "Модель солнца") {
+                    if (val >= 0 && val <= 80) {
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
                     } else {
@@ -324,8 +324,8 @@ function editTable(type) {
                         editCurrentTable(countId, val, countIndex);
                         alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 80, включительно!");
                     }
-                } else if(type =="Модель ветра"){
-                    if(val >= 0 && val <= 70){
+                } else if (type == "Модель ветра") {
+                    if (val >= 0 && val <= 70) {
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
                     } else {
@@ -334,10 +334,10 @@ function editTable(type) {
                         editCurrentTable(countId, val, countIndex);
                         alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения в диапазоне от 0 до 70, включительно!");
                     }
-                } else if(type =="Модель потребителя" ||
-                          type =="Модель поставщика" ||
-                          type =="Модель станции"    ){
-                    if(val >= 0 && val <= 500){
+                } else if (type == "Модель потребителя" ||
+                    type == "Модель поставщика" ||
+                    type == "Модель станции") {
+                    if (val >= 0 && val <= 500) {
                         $(this).parent().empty().html(val);
                         editCurrentTable(countId, val, countIndex);
                     } else {
@@ -436,7 +436,7 @@ function initTable(n_m) {
         new_row.appendChild(document.createElement("TH")).innerText = j;
         new_row.insertCell(1).innerText = 0;
         new_row.insertCell(2).innerText = 0;
-    } 
+    }
     editTable($('#select_model_type').val());
 }
 //-----------------------------------------
@@ -498,7 +498,7 @@ function getTableData(table) {
 //-----------------------------------------
 
 //----Сохранение коллекции моделей на сервере--------
-function saveСhangesModel() {
+function saveChangesModel() {
     saveData("modelCollections", JSON.stringify(table_model));
     alert("Настройки моделей сохранены!");
 }
@@ -563,7 +563,7 @@ function saveGameSettings() {
     game_model.gameSpeed = $("#inputSpeed").val();
     game_model.sunModel = $("#inputSolModel").val();
     game_model.windModel = $("#inputWindModel").val();
-    if(game_model.gameSpeed >= 5 && game_model.gameSpeed <= 60){
+    if (game_model.gameSpeed >= 5 && game_model.gameSpeed <= 60) {
         saveData("gameSettings", JSON.stringify(game_model));
         alert("Настройки игры сохранены!");
     } else {
@@ -571,7 +571,6 @@ function saveGameSettings() {
         game_model.gameSpeed = $("#inputSpeed").val();
         alert("НЕВЕРНОЕ ЗНАЧЕНИЕ! Введите значения скорости игры в диапазоне от 5 до 60, включительно!");
     }
-    
 }
 //-----------------------------------------
 
@@ -633,7 +632,10 @@ function saveForBtn(formId) {
                 object_model[i].table_model = $("#" + formId).find(".form-control").val();
                 object_model[i].active = $("#" + formId).find("input").prop('checked');
                 saveData("objectCollections", JSON.stringify(object_model));
-                alert("Настройки объекта сохранены!");
+                $("#" + formId).modal('toggle');
+                $(".alert").text('Настройки объекта сохранены!');
+                $(".alert").show();
+                $(".alert").delay(200).fadeOut(5000);
             }
         }
     });
