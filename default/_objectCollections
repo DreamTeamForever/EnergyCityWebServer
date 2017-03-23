@@ -1,16 +1,16 @@
 [
   {
     "object_id": "CH_001",
-    "table_model": "Госпиталь",
-    "object_name": "Госпиталь #1",
+    "table_model": "Больница",
+    "object_name": "Больница #1",
     "object_type": "consumption",
     "active": true,
     "online": true
   },
   {
     "object_id": "CH_002",
-    "table_model": "Госпиталь",
-    "object_name": "Госпиталь #2",
+    "table_model": "Больница",
+    "object_name": "Больница #2",
     "object_type": "consumption",
     "active": false,
     "online": true
@@ -146,7 +146,7 @@
   {
     "object_id": "MS_001",
     "table_model": " ",
-    "object_name": "Электрическая станция",
+    "object_name": "Подстанция",
     "object_type": "station",
     "active": true,
     "online": true
@@ -154,7 +154,7 @@
   {
     "object_id": "SS_001",
     "table_model": " ",
-    "object_name": "Электрическая подстанция",
+    "object_name": "Миниподстанция",
     "object_type": "station",
     "active": true,
     "online": true

@@ -512,8 +512,8 @@
     ]
   },
   {
-    "model_id": "Госпиталь",
-    "model_name": "Госпиталь",
+    "model_id": "Больница",
+    "model_name": "Больница",
     "model_type": "consumption",
     "model_type_ru": "Модель поставщика",
     "data": [
