@@ -1,5 +1,6 @@
 //----Глобальные переменные и все такое----
 var dataChart; //Данные для построения графика
+var dataIn;
 var chartTimer = 0; //Таймер
 var magickC = 2.45;
 var idObject = "1";
@@ -37,8 +38,8 @@ var dataAll = [ {"step":0,"incom":0},
 
 //----загрузка данных----------------------
 function loadChart(data) {
-    //dataAll = data;
-    dataChart = findObject(data);
+    dataIn = data;
+    dataChart = findObject(dataIn);
     chartMoris.setData(dataChart);
 }
 //-----------------------------------------
@@ -61,7 +62,8 @@ function enableTimerCh(gameState, time) {
 
 function setIdObjectChart(id) {
     idObject = id;
-    updateChart();
+    loadChart(dataIn);
+    //updateChart();
 }
 
 function findObject(data) {
@@ -78,31 +80,31 @@ function findObject(data) {
 
 //-----------------------------------------
 
-//----обновление данных по таймеру---------
-function enableTimerCh(gameState, time) {
-    if (gameState) {
-        chartTimer = setInterval('updateChart()', time);
-    } else {
-        clearInterval(chartTimer);
-    }
-}
+// //----обновление данных по таймеру---------
+// function enableTimerCh(gameState, time) {
+//     if (gameState) {
+//         chartTimer = setInterval('updateChart()', time);
+//     } else {
+//         clearInterval(chartTimer);
+//     }
+// }
 
-function setIdObjectChart(id) {
-    idObject = id;
-    updateChart();
-}
+// function setIdObjectChart(id) {
+//     idObject = id;
+//     updateChart();
+// }
 
-function findObject(data) {
-    var temp = data[0].object_data;
-    for (var i = 0; i < data.length; i++) {
-        if (data[i].object_id == idObject) {
-            temp = data[i].object_data;
-            break;
-        }
-    }
-    return temp;
-}
-//-----------------------------------------
+// function findObject(data) {
+//     var temp = data[0].object_data;
+//     for (var i = 0; i < data.length; i++) {
+//         if (data[i].object_id == idObject) {
+//             temp = data[i].object_data;
+//             break;
+//         }
+//     }
+//     return temp;
+// }
+// //-----------------------------------------
 
 //-----------economy-----------------------
 //-----------------------------------------

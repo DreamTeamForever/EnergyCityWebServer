@@ -6,7 +6,7 @@
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
+var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
 var gamerTimer = 0; //Таймер для таймера
 var gamerCount = 0; //Счетчик для таймера
 var superIDObject;
@@ -120,13 +120,13 @@ $('#startStop').change(function() {
 
 function startGame() {
     startTimer();
-    console.log(game.game_state);
+    // console.log(game.game_state);
     $('#clockdiv > div').css("background", '#5cb85c');
 }
 
 function stopGame() {
     stopTimer();
-    console.log(game.game_state);
+    // console.log(game.game_state);
     $('#clockdiv > div').css("background", '#c9302c');
 }
 //-----------------------------------------
@@ -196,7 +196,7 @@ function readClock() {
 
 function loadState() {
     var tem = readCookie("game");
-    console.log(tem);
+    // console.log(tem);
     if (tem == "true") {
         readClock();
         changeTimerLabel();
@@ -209,7 +209,7 @@ function loadState() {
 //----обновление таймера игры--------------
 function startTimer() {
     var val = game_model.gameSpeed * 1000;
-    console.log("Game speed: " + val);
+    // console.log("Game speed: " + val);
     enableTimerCh(true, val);
     enableTimerGp(true, val);
     enableTimerGm(true, val);
@@ -219,7 +219,7 @@ function startTimer() {
 
 function stopTimer() {
     var val = game_model.gameSpeed * 1000;
-    console.log("Game speed: " + val);
+    // console.log("Game speed: " + val);
     enableTimerCh(false, val);
     enableTimerGp(false, val);
     enableTimerGm(false, val);
@@ -276,7 +276,7 @@ function selectModel() {
     $("#table_model_body tr").remove();
     var model_n = document.getElementById("select_model").value;
     var model_t;
-    console.log("Select item: " + model_n);
+    // console.log("Select item: " + model_n);
     for (var i = 0; i < table_model.length; i++) {
         if (model_n == table_model[i].model_name) {
             model_t = table_model[i].model_type_ru;
@@ -307,7 +307,7 @@ function editTable(type) {
                 return false;
             }
             // console.log($(this).index());
-            console.log(type);
+            // console.log(type);
             var val = $(this).html();
             var code = '<input type="number" id="edit" value="' + val + '" />';
             $(this).empty().append(code);
@@ -425,7 +425,7 @@ function createTableModel() {
     changeStateButtom(false, "btn_create_model");
     changeStateButtom(true, "btn_add_model");
     initTable(new_name);
-    console.log("test");
+    // console.log("test");
 }
 
 function initTable(n_m) {
@@ -613,7 +613,7 @@ function updateCustomSelect(formId, data) {
         }
     }
     $("#" + formId).find(".form-control").val(data.table_model);
-    console.log(data.table_model);
+    // console.log(data.table_model);
     changeCustomToggle(formId, data.active);
     blokSelect(formId, game.game_state);
 }
@@ -672,7 +672,7 @@ function getCurrentModel(formId) {
 var rdTimer = 0;
 
 function reload() {
-    console.log("Reload");
+    // console.log("Reload");
     loadData("modelCollections", loadModel);
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);

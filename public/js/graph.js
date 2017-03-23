@@ -32,7 +32,7 @@ function enableTimerGp(gameState,time) {
 //----загрузка данных----------------------
 function loadGr(data) {
     graphData = data;
-    console.log(graphData);
+    //console.log(graphData);
     //layout.stop();
     var collection = cy.elements();
     cy.remove( collection );
@@ -81,7 +81,7 @@ function forGraphOnly() {
         $("#edge-operation").hide();
         $("#node-operation").show();
         var target = evt.cyTarget;
-        console.log('select ' + target.id(), target);
+        //console.log('select ' + target.id(), target);
         if(target.data('label') != "" ) {
           $("#graph_name").text("График потребления '" + target.data('label') + "'");
           setIdObjectChart(target.id());
@@ -99,7 +99,7 @@ function forGraphOnly() {
         $("#edge-operation").show();
         $("#node-operation").hide();
         var target = evt.cyTarget;
-        console.log('tapped ' + target.id(), target);
+        //console.log('tapped ' + target.id(), target);
         $("#selected").text("Selected:" + target.id());
     }
 
@@ -107,14 +107,14 @@ function forGraphOnly() {
     cy.on('unselect', 'node', unselectedHandler);
     cy.on('select', 'edge', selectedEdgeHandler);
     cy.on('unselect', 'edge', unselectedHandler);
-    cy.on('tap', function(event){
-        var evtTarget = event.cyTarget;
-        if( evtTarget === cy ){
-            console.log('tap on background');
-        } else {
-            console.log('tap on some element');
-        }
-    });
+    // cy.on('tap', function(event){
+    //     var evtTarget = event.cyTarget;
+    //     if( evtTarget === cy ){
+    //         console.log('tap on background');
+    //     } else {
+    //         console.log('tap on some element');
+    //     }
+    // });
 }
 
 function savePos(){
