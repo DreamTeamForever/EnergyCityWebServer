@@ -6,7 +6,8 @@
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
+// var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
+var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
 var gamerTimer = 0; //Таймер для таймера
 var gamerCount = 0; //Счетчик для таймера
 var superIDObject;
@@ -623,7 +624,12 @@ function changeCustomToggle(formId, state) {
     $("#" + formId).find("input").prop('checked', state).change();
 }
 //-----------------------------------------
-
+function viewAlert(str, formId) {
+    $("#" + formId).modal('toggle');
+    $(".alert").text(str);
+    $(".alert").show();
+    $(".alert").delay(200).fadeOut(3000);
+}
 //----Сохранить настройки---------
 function saveForBtn(formId) {
     $("#" + formId).find(".modal-footer").find(".btn.btn-success").click(function() {
@@ -632,10 +638,7 @@ function saveForBtn(formId) {
                 object_model[i].table_model = $("#" + formId).find(".form-control").val();
                 object_model[i].active = $("#" + formId).find("input").prop('checked');
                 saveData("objectCollections", JSON.stringify(object_model));
-                $("#" + formId).modal('toggle');
-                $(".alert").text('Настройки объекта сохранены!');
-                $(".alert").show();
-                $(".alert").delay(200).fadeOut(5000);
+                viewAlert('Настройки объекта сохранены!', formId);
             }
         }
     });
@@ -645,7 +648,7 @@ function saveForBtn(formId) {
 function discardForBtn(formId) {
     $("#" + formId).find(".modal-footer").find(".btn.btn-default").click(function() {
         updateCustomSelect(formId, getCurrentModel(formId));
-        alert("Настройки объекта восстановлены до ранее сохраненного состояния!");
+        viewAlert("Настройки объекта восстановлены до ранее сохраненного состояния!", formId);
     });
 }
 //-----------------------------------------
