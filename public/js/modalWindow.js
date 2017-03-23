@@ -146,22 +146,13 @@ function enableTimerGm(gameState, time) {
 }
 
 function realTimer() {
-    gamerClock.minute += 20;
-    if (gamerClock.minute == 60) {
-        gamerClock.hour += 1;
-        gamerClock.minute = 0;
-    }
-    if (gamerClock.hour == 24) {
-        gamerClock.day += 1;
-        gamerClock.hour = 0;
-    }
-    if (gamerClock.day >= 8) {
-        gamerClock.minute = 0;
-        gamerClock.hour = 0;
-        gamerClock.day = 0;
-        endGameFunc();
-        return 0;
-    }
+    loadData("gameTime",lGameTime);
+}
+
+function lGameTime(data){
+    gamerClock.minute = Number(data.time.split(':')[2]);
+    gamerClock.hour = Number(data.time.split(':')[1]);
+    gamerClock.day = Number(data.time.split(':')[0]);
     changeTimerLabel();
 }
 
