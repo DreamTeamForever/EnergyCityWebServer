@@ -40,7 +40,7 @@ function loadGr(data) {
     cy.add(collection);
     layout = cy.makeLayout({
         name: 'breadthfirst',
-        roots: ["MS_001", "SS_001"],
+        roots: ["MS_001"], //, "SS_001"],
         spacingFactor: 1.0
     });
     // console.log(JSON.stringify(cy.pan()));
@@ -75,7 +75,7 @@ function forGraphOnly() {
     cy = cytoscape(getSettingsGraph());
     layout = cy.makeLayout({
         name: 'breadthfirst',
-        roots: ["MS_001", "SS_001"],
+        roots: ["MS_001"], //, "SS_001"],
         spacingFactor: 1.0
     });
     layout.run();

@@ -13,7 +13,7 @@ var gamerCount = 0; //Счетчик для таймера
 var superIDObject;
 var superTypeModel = "";
 var gamerClock = {
-    "day": 0,
+    "day": 1,
     "hour": 0,
     "minute": 0
 };
@@ -141,15 +141,15 @@ function enableTimerGm(gameState, time) {
         clearInterval(gamerTimer);
         gamerClock.minute = 0;
         gamerClock.hour = 0;
-        gamerClock.day = 0;
+        gamerClock.day = 1;
     }
 }
 
 function realTimer() {
-    loadData("gameTime",lGameTime);
+    loadData("gameTime", lGameTime);
 }
 
-function lGameTime(data){
+function lGameTime(data) {
     gamerClock.minute = Number(data.time.split(':')[2]);
     gamerClock.hour = Number(data.time.split(':')[1]);
     gamerClock.day = Number(data.time.split(':')[0]);
@@ -673,8 +673,7 @@ function reload() {
     loadData("gameSettings", lodaGameSettings);
     loadData("objectCollections", lodaObject);
     clearTimeout(rdTimer);
-    var formId = 'model_settings';
-    viewAlert("Выполнено восстановление настроек системы!", formId);
+    viewAlert("Выполнено восстановление настроек системы!", 'reset_default');
 }
 
 $("#resetBTN").click(function() {
