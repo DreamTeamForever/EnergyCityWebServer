@@ -22,16 +22,29 @@ var chartMoris = Morris.Line({
     parseTime: false,
     pointFillColors: ['#ffffff'],
     pointStrokeColors: ['grey'],
+    smooth: false,
     lineColors: ['blue', 'orange']
     // lineColors: ['#1ab394', '#87d6c6']
 });
 //-----------------------------------------
 
 //-------СЕКТОР ПРИЗ-----------------------
-var dataAll = [ {"step":0,"incom":0},
-                {"step":0,"incom":0},
-                {"step":0,"incom":0},
-                {"step":0,"incom":0}
+var dataAll = [{
+        "step": 0,
+        "incom": 0
+    },
+    {
+        "step": 0,
+        "incom": 0
+    },
+    {
+        "step": 0,
+        "incom": 0
+    },
+    {
+        "step": 0,
+        "incom": 0
+    }
 ];
 
 //-----------------------------------------
@@ -109,7 +122,7 @@ function findObject(data) {
 //-----------economy-----------------------
 //-----------------------------------------
 function changeEconomy() {
-    var io =  findId($('#select_econom_model').val());
+    var io = findId($('#select_econom_model').val());
     chartEconomy.setData(findEcData(io));
 }
 //-----------------------------------------
@@ -117,7 +130,7 @@ function changeEconomy() {
 //-----------------------------------------
 function findId(name) {
     for (var i = 0; i < object_model.length; i++) {
-        if(object_model[i].object_name == name){
+        if (object_model[i].object_name == name) {
             return object_model[i].object_id;
         }
     }
@@ -127,7 +140,7 @@ function findId(name) {
 //-----------------------------------------
 function findEcData(id) {
     for (var i = 0; i < dataAll.length; i++) {
-        if(dataAll[i].object_id == id){
+        if (dataAll[i].object_id == id) {
             return dataAll[i].object_data;
         }
     }
@@ -143,21 +156,21 @@ $('#econom_settings').on('show.bs.modal', function() {
 
 //-----------------------------------------
 function initChart() {
-    if(chartTest){
+    if (chartTest) {
         chartEconomy = Morris.Bar({
-        element: 'area-chart-econom',
-        data: dataAll,
-        xkey: ['step'],
-        ykeys: ['incom'],
-        labels: ['Total'],
-        fillOpacity: 0.6,
-        hideHover: 'auto',
-        behaveLikeLine: true,
-        resize: true,
-        parseTime: false,
-        pointFillColors: ['#ffffff'],
-        pointStrokeColors: ['blue'],
-        lineColors: ['#1ab394', '#87d6c6']
+            element: 'area-chart-econom',
+            data: dataAll,
+            xkey: ['step'],
+            ykeys: ['incom'],
+            labels: ['Total'],
+            fillOpacity: 0.6,
+            hideHover: 'auto',
+            behaveLikeLine: true,
+            resize: true,
+            parseTime: false,
+            pointFillColors: ['#ffffff'],
+            pointStrokeColors: ['blue'],
+            lineColors: ['#1ab394', '#87d6c6']
         });
     }
     chartTest = false;

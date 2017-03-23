@@ -81,6 +81,7 @@ function forGraphOnly() {
     layout.run();
     positonCrap = cy.pan();
     cy.userPanningEnabled(true);
+    cy.zoom(0.3);
     //console.log(cy.userPanningEnabled());
     timerSP = setInterval('savePos()', 250);
 
