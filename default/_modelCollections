@@ -384,8 +384,8 @@
     ]
   },
   {
-    "model_id": "Фабрика",
-    "model_name": "Фабрика",
+    "model_id": "Завод",
+    "model_name": "Завод",
     "model_type": "consumption",
     "model_type_ru": "Модель потребителя",
     "data": [

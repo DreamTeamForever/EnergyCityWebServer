@@ -65,16 +65,16 @@
   },
   {
     "object_id": "CF_001",
-    "table_model": "Фабрика",
-    "object_name": "Фабрика #1",
+    "table_model": "Завод",
+    "object_name": "Завод #1",
     "object_type": "consumption",
     "active": true,
     "online": true
   },
   {
     "object_id": "CF_002",
-    "table_model": "Фабрика",
-    "object_name": "Фабрика #2",
+    "table_model": "Завод",
+    "object_name": "Завод #2",
     "object_type": "consumption",
     "active": true,
     "online": true
@@ -82,7 +82,7 @@
   {
     "object_id": "GRA_001",
     "table_model": "Статичная модель",
-    "object_name": "Электрический аккумулятор #1",
+    "object_name": "Аккумулятор #1",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -90,7 +90,7 @@
   {
     "object_id": "GRA_002",
     "table_model": "Статичная модель",
-    "object_name": "Электрический аккумулятор #2",
+    "object_name": "Аккумулятор #2",
     "object_type": "supplier",
     "active": true,
     "online": true
@@ -98,7 +98,7 @@
   {
     "object_id": "GRA_003",
     "table_model": "Статичная модель",
-    "object_name": "Электрический аккумулятор #3",
+    "object_name": "Аккумулятор #3",
     "object_type": "supplier",
     "active": true,
     "online": true
