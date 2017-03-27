@@ -14,7 +14,7 @@ var chartMoris = Morris.Line({
     data: dataChart,
     xkey: ['step'],
     ykeys: ['input', 'output'],
-    labels: ['Реальное потребление/Эталонное выработка электроэнергии', 'Эталонное потребление/Реальная выработка электроэнергии'],
+    labels: ['Реальное потребление/Генерация энергии', 'Требуемая энергия'],
     fillOpacity: 0.6,
     hideHover: 'auto',
     behaveLikeLine: true,
