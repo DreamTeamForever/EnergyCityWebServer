@@ -113,7 +113,7 @@ $('#startStop').change(function() {
     if ($(this).prop('checked')) {
         saveData("startGame", JSON.stringify(game));
         startGame();
-        changeStateButtom(true, "startStop");
+        $('#startStop').bootstrapToggle('disable');
     } else {
         saveData("stopGame", JSON.stringify(game));
         stopGame();
@@ -147,7 +147,7 @@ function enableTimerGm(gameState, time) {
 }
 
 function realTimer() {
-    changeStateButtom(false, "startStop");
+    $('#startStop').bootstrapToggle('enable');
     loadData("gameTime", lGameTime);
 }
 
