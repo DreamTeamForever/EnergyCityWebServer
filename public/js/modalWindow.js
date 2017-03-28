@@ -6,7 +6,7 @@
 //-----------------------------------------
 
 //----Глобальные переменные и все такое----
-var cs_url = "http://127.0.0.1:9099/"; // Адресс сервера
+var cs_url = "http://127.0.0.1:9099/"
 // var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
 var gamerTimer = 0; //Таймер для таймера
 var gamerCount = 0; //Счетчик для таймера
@@ -113,6 +113,7 @@ $('#startStop').change(function() {
     if ($(this).prop('checked')) {
         saveData("startGame", JSON.stringify(game));
         startGame();
+        changeStateButtom(true, "startStop");
     } else {
         saveData("stopGame", JSON.stringify(game));
         stopGame();
@@ -146,6 +147,7 @@ function enableTimerGm(gameState, time) {
 }
 
 function realTimer() {
+    changeStateButtom(false, "startStop");
     loadData("gameTime", lGameTime);
 }
 
