@@ -32,8 +32,6 @@ function enableTimerGp(gameState, time) {
 //----загрузка данных----------------------
 function loadGr(data) {
     graphData = data;
-    //console.log(graphData);
-    //layout.stop();
     var collection = cy.elements();
     cy.remove(collection);
     collection = getDataGraph();
@@ -43,18 +41,10 @@ function loadGr(data) {
         roots: ["MS_001"], //, "SS_001"],
         spacingFactor: 1.0
     });
-    // console.log(JSON.stringify(cy.pan()));
-    // console.log(JSON.stringify(cy.zoom()));
     layout.start();
-    // console.log("-----------------------");
-    //cy.zoom(setPos());
-    //cy.pan();
     cy.zoom(zoomCrap);
     cy.pan(positonCrap);
     cy.$("#" + currentNodeId).select();
-    // cy.$('#j').select();
-    // console.log(JSON.stringify(cy.pan()));
-    // console.log(JSON.stringify(cy.zoom()));
 };
 //-----------------------------------------
 
@@ -82,14 +72,12 @@ function forGraphOnly() {
     positonCrap = cy.pan();
     cy.userPanningEnabled(true);
     cy.zoom(0.3);
-    //console.log(cy.userPanningEnabled());
     timerSP = setInterval('savePos()', 250);
 
     var selectedNodeHandler = function(evt) {
         $("#edge-operation").hide();
         $("#node-operation").show();
         var target = evt.cyTarget;
-        //console.log('select ' + target.id(), target);
         if (target.data('label') != "") {
             $("#graph_name").text("График потребления '" + target.data('label') + "'");
             setIdObjectChart(target.id());
@@ -107,7 +95,6 @@ function forGraphOnly() {
         $("#edge-operation").show();
         $("#node-operation").hide();
         var target = evt.cyTarget;
-        //console.log('tapped ' + target.id(), target);
         $("#selected").text("Selected:" + target.id());
     }
 
@@ -115,20 +102,10 @@ function forGraphOnly() {
     cy.on('unselect', 'node', unselectedHandler);
     cy.on('select', 'edge', selectedEdgeHandler);
     cy.on('unselect', 'edge', unselectedHandler);
-    // cy.on('tap', function(event){
-    //     var evtTarget = event.cyTarget;
-    //     if( evtTarget === cy ){
-    //         console.log('tap on background');
-    //     } else {
-    //         console.log('tap on some element');
-    //     }
-    // });
 }
 
 function savePos() {
     positonCrap = cy.pan();
     zoomCrap = cy.zoom();
-    // console.log("POS "+JSON.stringify(positonCrap));
-    // console.log("ZOOM "+JSON.stringify(zoomCrap));
 }
 //-----------------------------------------

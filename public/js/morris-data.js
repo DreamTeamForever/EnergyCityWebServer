@@ -90,34 +90,8 @@ function findObject(data) {
     return temp;
 }
 //-----------------------------------------
-
 //-----------------------------------------
 
-// //----обновление данных по таймеру---------
-// function enableTimerCh(gameState, time) {
-//     if (gameState) {
-//         chartTimer = setInterval('updateChart()', time);
-//     } else {
-//         clearInterval(chartTimer);
-//     }
-// }
-
-// function setIdObjectChart(id) {
-//     idObject = id;
-//     updateChart();
-// }
-
-// function findObject(data) {
-//     var temp = data[0].object_data;
-//     for (var i = 0; i < data.length; i++) {
-//         if (data[i].object_id == idObject) {
-//             temp = data[i].object_data;
-//             break;
-//         }
-//     }
-//     return temp;
-// }
-// //-----------------------------------------
 
 //-----------economy-----------------------
 //-----------------------------------------
@@ -182,8 +156,5 @@ function getEconomicData(data) {
     dataAll = data.economic;
 }
 //-----------------------------------------
-
 //-----------------------------------------
 
-// gameTime
-// economycData

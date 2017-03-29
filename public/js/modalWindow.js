@@ -1,10 +1,3 @@
-//----Было надо, но теперь. Пусть будет----
-// var sun_select = document.getElementById("input_sol_model");
-// var wind_select = document.getElementById("input_wind_model");
-// var save_settings = document.getElementById("btn_save_settings");
-// var game_speed = document.getElementById("input_speed");
-//-----------------------------------------
-
 //----Глобальные переменные и все такое----
 var cs_url = "http://127.0.0.1:9099/"
 // var cs_url = "http://82.117.171.124:9099/"; // Адресс сервера
@@ -165,8 +158,6 @@ function endGameFunc() {
 }
 
 function changeTimerLabel() {
-    // var labelText = "День: " + gamerClock.day + ";" + " Час: " + gamerClock.hour + ";" + " Минута: " + gamerClock.minute + ".";
-    // document.getElementById('startStopLabel').innerHTML = labelText;
     $('.days').text(gamerClock.day);
     $('.hours').text(gamerClock.hour);
     $('.minutes').text(gamerClock.minute);
