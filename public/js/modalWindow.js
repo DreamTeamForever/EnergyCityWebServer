@@ -148,7 +148,11 @@ function lGameTime(data) {
     gamerClock.minute = Number(data.time.split(':')[2]);
     gamerClock.hour = Number(data.time.split(':')[1]);
     gamerClock.day = Number(data.time.split(':')[0]);
-    changeTimerLabel();
+    if(gamerClock.day >= 8){
+        endGameFunc();
+    } else {
+        changeTimerLabel();    
+    }
 }
 
 function endGameFunc() {
