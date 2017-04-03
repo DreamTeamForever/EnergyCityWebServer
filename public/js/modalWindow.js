@@ -148,10 +148,10 @@ function lGameTime(data) {
     gamerClock.minute = Number(data.time.split(':')[2]);
     gamerClock.hour = Number(data.time.split(':')[1]);
     gamerClock.day = Number(data.time.split(':')[0]);
-    if(gamerClock.day >= 8){
+    if (gamerClock.day >= 8) {
         endGameFunc();
     } else {
-        changeTimerLabel();    
+        changeTimerLabel();
     }
 }
 
@@ -223,10 +223,12 @@ function blokControl(isStart) {
         $("#inputSolModel").attr("disabled", "disabled");
         $("#inputWindModel").attr("disabled", "disabled");
         $("#inputSpeed").attr("disabled", "disabled");
+        $("#sunBalance").attr("disabled", "disabled");
     } else {
         $("#inputSolModel").removeAttr("disabled");
         $("#inputWindModel").removeAttr("disabled");
         $("#inputSpeed").removeAttr("disabled");
+        $("#sunBalance").removeAttr("disabled");
     }
 }
 //-----------------------------------------
@@ -524,6 +526,8 @@ function updateFormSettings(data) {
     $("#inputSolModel").val(data.sunModel);
     $("#inputWindModel").val(data.windModel);
     $("#inputSpeed").val(data.gameSpeed);
+    $('#sunBalance').prop('checked', data.sunBalance);
+
     blokControl(game.game_state);
 }
 //-----------------------------------------
@@ -552,6 +556,7 @@ function saveGameSettings() {
     game_model.gameSpeed = $("#inputSpeed").val();
     game_model.sunModel = $("#inputSolModel").val();
     game_model.windModel = $("#inputWindModel").val();
+    game_model.sunBalance = $("#sunBalance").prop('checked');
     if (game_model.gameSpeed >= 5 && game_model.gameSpeed <= 60) {
         saveData("gameSettings", JSON.stringify(game_model));
         viewAlert("Настройки игры сохранены!", 'game_settings');

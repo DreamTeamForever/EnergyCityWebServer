@@ -1001,10 +1001,7 @@
                         <div class="form-group">
                             <label for="inputSpeed" class="col-sm-4 control-label">Скорость игры</label>
                             <div class="col-sm-6">
-                                <!-- <input type="number" min="5" max="60" class="form-control" id="inputSpeed" placeholder="10"> -->
                                 <p><span class="text-left">Быстрее</span> <span class="pull-right">Медленне</span></p>
-                                <!-- <p class="text-left">Медленне</p> -->
-                                <!-- <p class="text-right">Быстрее</p> -->
                                 <input id="inputSpeed" type="range" min="5" max="60" step="1" />
                             </div>
                         </div>
@@ -1018,13 +1015,17 @@
                             <label for="inputWindModel" class="col-sm-4 control-label">Модель ветра</label>
                             <div class="col-sm-6">
                                 <select id="inputWindModel" class="form-control"></select>
-                                <!--<script type="text/javascript"></script> -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sunBalance" class="col-sm-4 control-label">Солнце</label>
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="sunBalance" value="">корректировка солнечной панели</label>
+                                </div>
                             </div>
                         </div>
                     </form>
-                    <!-- <script>
-                        $("#settings_form").validate();
-                    </script> -->
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
